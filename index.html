@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safarnama | The Future of NSW Transit</title>
+    <meta name="description" content="Safarnama: Navigate NSW with electric ease. Real-time tracking, live car park occupancy, and smart trip planning.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN for zero-build hosting) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Configuration matching app theme -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        electric: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            400: '#818cf8',
+                            500: '#6366F1', // Your App's Primary
+                            600: '#4F46E5',
+                            900: '#312e81',
+                        },
+                        vibrant: {
+                            400: '#fb7185',
+                            500: '#F43F5E', // Your App's Secondary
+                            600: '#e11d48',
+                        },
+                        dark: {
+                            800: '#1e293b',
+                            900: '#0F172A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6366F1 0%, #F43F5E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Funnel Animation */
+        .funnel-arrow {
+            animation: flowDown 2s infinite;
+        }
+        @keyframes flowDown {
+            0% { transform: translateY(0); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(10px); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-slate-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-electric-500 to-vibrant-500 flex items-center justify-center text-white shadow-lg shadow-electric-500/30">
+                        <i class="fa-solid fa-location-arrow text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-slate-900">Safar<span class="text-electric-500">nama</span></span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#features" class="text-slate-600 hover:text-electric-600 font-medium transition">Features</a>
+                    <a href="#tracking" class="text-slate-600 hover:text-electric-600 font-medium transition">Live Tracking</a>
+                    <a href="#comparison" class="text-slate-600 hover:text-electric-600 font-medium transition">Compare</a>
+                    <!-- Updated Navbar Download Link -->
+                    <a href="Asset/app-release.apk" download class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Download APK
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Blobs -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-electric-200/40 rounded-full blur-3xl opacity-50 mix-blend-multiply filter animate-blob"></div>
+        <div class="absolute top-0 left-0 -ml-20 -mt-20 w-[600px] h-[600px] bg-vibrant-200/40 rounded-full blur-3xl opacity-50 mix-blend-multiply filter animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-6 animate-fade-in-up">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span class="text-sm font-semibold text-slate-600">v1.0 Available for Android</span>
+                    </div>
+                    
+                    <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                        Your Journey with <br>
+                        <span class="gradient-text">Safarnama.</span>
+                    </h1>
+                    
+                    <p class="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        The ultimate all-in-one transit companion. Live parking, instant departure updates, and real-time tracking that actually works. 
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <!-- Updated Hero Download Link -->
+                        <a href="Asset/app-release.apk" download class="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-xl hover:shadow-2xl shadow-slate-900/20 transform hover:-translate-y-1">
+                            <i class="fa-brands fa-android text-2xl text-green-400"></i>
+                            <div class="text-left">
+                                <div class="text-xs text-slate-300">Download APK</div>
+                                <div class="text-sm font-bold">Android Only</div>
+                            </div>
+                        </a>
+                        <button disabled class="flex items-center justify-center gap-3 bg-slate-100 text-slate-400 border border-slate-200 px-8 py-4 rounded-2xl cursor-not-allowed">
+                            <i class="fa-brands fa-apple text-2xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs">Coming Soon</div>
+                                <div class="text-sm font-bold">iOS</div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Phone Mockup -->
+                <div class="relative lg:h-[700px] flex justify-center items-center">
+                    <!-- Decorative Circles behind phone -->
+                    <div class="absolute w-[500px] h-[500px] bg-gradient-to-tr from-electric-500 to-vibrant-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+                    
+                    <!-- CSS Phone Mockup -->
+                    <div class="relative z-10 animate-float">
+                        <div class="relative mx-auto border-gray-900 bg-gray-900 border-[14px] rounded-[2.5rem] h-[600px] w-[300px] shadow-2xl shadow-electric-500/40">
+                            <!-- Phone buttons -->
+                            <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
+                            <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
+                            <div class="rounded-[2rem] overflow-hidden w-full h-full bg-slate-100 relative flex flex-col">
+                                <!-- App Header Mockup -->
+                                <div class="bg-white p-6 pt-12 pb-4 shadow-sm z-20">
+                                    <div class="text-xs font-bold text-electric-600 uppercase tracking-widest mb-1">Let's Go</div>
+                                    <h2 class="text-2xl font-bold text-slate-900">Where to next?</h2>
+                                </div>
+                                <!-- App Body Mockup -->
+                                <div class="p-4 space-y-4">
+                                    <div class="bg-white p-4 rounded-2xl shadow-sm border border-slate-100">
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <div class="w-8 h-8 rounded-full bg-electric-100 flex items-center justify-center text-electric-600"><i class="fa-solid fa-location-dot"></i></div>
+                                            <div class="h-2 bg-slate-100 rounded w-24"></div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded-full bg-vibrant-100 flex items-center justify-center text-vibrant-500"><i class="fa-solid fa-location-dot"></i></div>
+                                            <div class="h-2 bg-slate-100 rounded w-32"></div>
+                                        </div>
+                                    </div>
+                                    <div class="bg-indigo-600 text-white p-4 rounded-2xl shadow-lg shadow-indigo-500/30 flex justify-between items-center">
+                                        <div>
+                                            <div class="font-bold">Find Route</div>
+                                        </div>
+                                        <i class="fa-solid fa-arrow-right"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Overlay Notification -->
+                                <div class="absolute bottom-6 left-4 right-4 bg-white/90 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-white/50 z-30 animate-bounce">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+                                            <i class="fa-solid fa-bus text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-bold text-slate-900">Bus 751</div>
+                                            <div class="text-xs text-green-600 font-semibold">Departing Now</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section id="features" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-electric-600 font-semibold tracking-wider uppercase text-sm">Features</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 text-slate-900">Everything you need to move.</h2>
+                <p class="text-slate-500 mt-4 max-w-2xl mx-auto">We've stripped away the clutter and focused on the features that actually matter to NSW commuters.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-electric-200 transition group hover:shadow-xl hover:shadow-electric-500/5">
+                    <div class="w-14 h-14 rounded-2xl bg-electric-100 text-electric-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-location-crosshairs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Multi-Mode Tracking</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Live GTFS positions for <strong>Metro, Trains, Buses, Ferries,</strong> and <strong>Light Rail</strong>. See exactly where your ride is on the map.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-vibrant-200 transition group hover:shadow-xl hover:shadow-vibrant-500/5">
+                    <div class="w-14 h-14 rounded-2xl bg-vibrant-100 text-vibrant-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-square-parking"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Live Car Parks</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Real-time occupancy data with <span class="font-semibold text-vibrant-500">zone-level breakdowns</span>. Check available spots and navigate directly to the entrance.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-electric-200 transition group hover:shadow-xl hover:shadow-electric-500/5">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-route"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-slate-900">Smart Trip Planning</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        "Arrive By" logic handles complex routes. Special support for <strong>School Buses (Yellow)</strong> and <strong>On-Demand (Purple)</strong> services.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School Bus & Map Section (Highlight from code) -->
+    <section id="tracking" class="py-24 bg-slate-900 text-white overflow-hidden relative">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-electric-600/10 skew-x-12"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-block px-4 py-1 rounded-full bg-yellow-400/20 text-yellow-300 font-semibold text-sm mb-6 border border-yellow-400/30">
+                        <i class="fa-solid fa-star mr-2"></i> Specialized Markers
+                    </div>
+                    <h2 class="text-4xl font-bold mb-6">Tracking for Every Service.</h2>
+                    <p class="text-slate-300 text-lg mb-8 leading-relaxed">
+                        We don't just show generic dots. Our map uses a smart color-coding system derived directly from the service type, so you know exactly what's approaching.
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded-full bg-yellow-500 flex items-center justify-center text-slate-900">
+                                <i class="fa-solid fa-bus-simple"></i>
+                            </div>
+                            <span class="font-medium"><strong>Yellow Markers</strong> for School Buses</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-van-shuttle"></i>
+                            </div>
+                            <span class="font-medium"><strong>Purple Markers</strong> for On-Demand & Coaches</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-bus"></i>
+                            </div>
+                            <span class="font-medium"><strong>Blue Markers</strong> for Standard Public Buses</span>
+                        </li>
+                         <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+                                <i class="fa-solid fa-ship"></i>
+                            </div>
+                            <span class="font-medium"><strong>Green Markers</strong> for Ferries</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="relative">
+                    <!-- Map Card UI Mockup -->
+                    <div class="bg-slate-800 rounded-3xl p-2 shadow-2xl border border-slate-700 transform rotate-2 hover:rotate-0 transition duration-500">
+                        <div class="bg-slate-900 rounded-2xl overflow-hidden aspect-video relative">
+                             <!-- Placeholder for Map Screenshot -->
+                             <div class="absolute inset-0 bg-[#e5e7eb]"></div>
+                             <!-- Simulated Map Elements -->
+                             <div class="absolute top-1/4 left-1/4">
+                                 <div class="bg-yellow-500 text-black text-xs font-bold px-2 py-1 rounded shadow-lg border-2 border-white">School Bus 610W</div>
+                                 <div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-yellow-500 mx-auto"></div>
+                             </div>
+                             
+                             <div class="absolute bottom-1/3 right-1/4">
+                                 <div class="bg-purple-500 text-white text-xs font-bold px-2 py-1 rounded shadow-lg border-2 border-white">On Demand</div>
+                                 <div class="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-purple-500 mx-auto"></div>
+                             </div>
+
+                             <!-- Path Line -->
+                             <svg class="absolute inset-0 w-full h-full pointer-events-none" style="z-index: 0;">
+                                 <path d="M100,100 Q200,50 300,150 T500,100" fill="none" stroke="#6366F1" stroke-width="4" stroke-dasharray="8 4"/>
+                             </svg>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-lg">610W - Hills Grammar</h4>
+                                    <p class="text-slate-400 text-sm">Hillsbus • Stand A</p>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-green-400 font-bold text-xl">On Time</div>
+                                    <div class="text-slate-500 text-xs uppercase font-bold">Live</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The "All-in-One" Funnel Visualization -->
+    <section class="py-20 bg-slate-50 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-12">Stop switching apps. It's all here.</h2>
+            
+            <div class="relative p-8">
+                <!-- Top Row: Competitors -->
+                <div class="flex justify-center gap-8 md:gap-20 mb-8">
+                    <div class="flex flex-col items-center gap-3 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                        <div class="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center text-3xl text-blue-500 border border-slate-100">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <span class="text-sm font-medium text-slate-500">Google Maps</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center gap-3 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                        <div class="w-16 h-16 bg-white rounded-2xl shadow-md flex items-center justify-center text-3xl text-orange-500 border border-slate-100">
+                            <i class="fa-solid fa-train"></i>
+                        </div>
+                        <span class="text-sm font-medium text-slate-500">TripView</span>
+                    </div>
+
+                    <div class="flex flex-col items-center gap-3 opacity-60 grayscale hover:grayscale-0 transition duration-500">
+                        <div class="w-16 h-16 bg-slate-900 rounded-2xl shadow-md flex items-center justify-center text-3xl text-white border border-slate-100">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <span class="text-sm font-medium text-slate-500">Opal</span>
+                    </div>
+                </div>
+
+                <!-- Funnel Visual -->
+                <div class="h-24 relative flex justify-center mb-4">
+                    <!-- Animated arrows pouring down -->
+                    <div class="absolute left-1/4 top-0 text-slate-300 text-2xl funnel-arrow" style="animation-delay: 0s;">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="absolute top-0 text-slate-300 text-2xl funnel-arrow" style="animation-delay: 0.5s;">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="absolute right-1/4 top-0 text-slate-300 text-2xl funnel-arrow" style="animation-delay: 1s;">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <!-- Safarnama Result -->
+                <div class="flex flex-col items-center animate-pulse">
+                    <div class="w-24 h-24 bg-gradient-to-br from-electric-500 to-vibrant-500 rounded-3xl shadow-2xl shadow-electric-500/40 flex items-center justify-center text-5xl text-white transform hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-location-arrow"></i>
+                    </div>
+                    <h3 class="mt-6 text-2xl font-bold gradient-text">Safarnama</h3>
+                    <p class="text-slate-500">The only app you need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-electric-600 font-semibold tracking-wider uppercase text-sm">Head to Head</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">How we beat the giants</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Vs Google -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-2xl text-blue-600 shadow-sm">
+                            <i class="fa-brands fa-google"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl">Vs Google Maps</h3>
+                            <p class="text-sm text-slate-500">The generic choice vs the specialist</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start border-b border-slate-200 pb-4">
+                            <div class="w-1/2 pr-4">
+                                <div class="text-xs uppercase text-slate-400 font-bold mb-1">Live Car Parking</div>
+                                <div class="text-slate-900 font-medium">No Data</div>
+                            </div>
+                            <div class="w-1/2 pl-4 border-l border-slate-200">
+                                <div class="text-xs uppercase text-electric-500 font-bold mb-1">Safarnama</div>
+                                <div class="text-slate-900 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-green-500"></i> Real-time Occupancy
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-slate-200 pb-4">
+                            <div class="w-1/2 pr-4">
+                                <div class="text-xs uppercase text-slate-400 font-bold mb-1">Missed Bus Protection</div>
+                                <div class="text-slate-900 font-medium">Basic Schedules</div>
+                            </div>
+                            <div class="w-1/2 pl-4 border-l border-slate-200">
+                                <div class="text-xs uppercase text-electric-500 font-bold mb-1">Safarnama</div>
+                                <div class="text-slate-900 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-green-500"></i> Live Departure Board
+                                </div>
+                            </div>
+                        </div>
+                         <div class="flex justify-between items-start">
+                            <div class="w-1/2 pr-4">
+                                <div class="text-xs uppercase text-slate-400 font-bold mb-1">Update Speed</div>
+                                <div class="text-slate-900 font-medium">Standard Polling</div>
+                            </div>
+                            <div class="w-1/2 pl-4 border-l border-slate-200">
+                                <div class="text-xs uppercase text-electric-500 font-bold mb-1">Safarnama</div>
+                                <div class="text-slate-900 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-bolt text-yellow-500"></i> High Frequency
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vs Opal -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="w-12 h-12 bg-slate-900 rounded-full flex items-center justify-center text-2xl text-white shadow-sm">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl">Vs Opal App</h3>
+                            <p class="text-sm text-slate-500">The utility vs the experience</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex justify-between items-start border-b border-slate-200 pb-4">
+                            <div class="w-1/2 pr-4">
+                                <div class="text-xs uppercase text-slate-400 font-bold mb-1">Vehicle Tracking</div>
+                                <div class="text-slate-900 font-medium">Map View Limited</div>
+                            </div>
+                            <div class="w-1/2 pl-4 border-l border-slate-200">
+                                <div class="text-xs uppercase text-electric-500 font-bold mb-1">Safarnama</div>
+                                <div class="text-slate-900 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-map-location-dot text-electric-500"></i> Full Live Map
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start border-b border-slate-200 pb-4">
+                            <div class="w-1/2 pr-4">
+                                <div class="text-xs uppercase text-slate-400 font-bold mb-1">Car Parks</div>
+                                <div class="text-slate-900 font-medium">Not Available</div>
+                            </div>
+                            <div class="w-1/2 pl-4 border-l border-slate-200">
+                                <div class="text-xs uppercase text-electric-500 font-bold mb-1">Safarnama</div>
+                                <div class="text-slate-900 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-green-500"></i> Live Status
+                                </div>
+                            </div>
+                        </div>
+                         <div class="flex justify-between items-start">
+                            <div class="w-1/2 pr-4">
+                                <div class="text-xs uppercase text-slate-400 font-bold mb-1">Interface</div>
+                                <div class="text-slate-900 font-medium">Dated & Clunky</div>
+                            </div>
+                            <div class="w-1/2 pl-4 border-l border-slate-200">
+                                <div class="text-xs uppercase text-electric-500 font-bold mb-1">Safarnama</div>
+                                <div class="text-slate-900 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-wand-magic-sparkles text-vibrant-500"></i> Modern & Fast
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download CTA -->
+    <section id="download" class="py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-electric-600 to-vibrant-600 rounded-[3rem] p-12 md:p-20 text-center text-white shadow-2xl shadow-electric-500/30 relative overflow-hidden">
+                <!-- Abstract Circles -->
+                <div class="absolute top-0 left-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -ml-20 -mt-20"></div>
+                <div class="absolute bottom-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-20 -mb-20"></div>
+
+                <h2 class="text-3xl md:text-5xl font-bold mb-6 relative z-10">Start your Safarnama.</h2>
+                <p class="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto relative z-10">
+                    Download the app today and experience the smartest way to travel across New South Wales. Currently available for Android devices.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                    <!-- Updated Bottom Download Link -->
+                    <a href="Asset/app-release.apk" download class="flex items-center justify-center gap-3 bg-slate-900 text-white border border-slate-700 px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg font-bold transform hover:scale-105">
+                        <i class="fa-brands fa-android text-2xl text-green-400"></i> 
+                        <div class="text-left">
+                            <div class="text-xs text-slate-400">Download APK</div>
+                            <div>Android Version</div>
+                        </div>
+                    </a>
+                </div>
+                <p class="mt-6 text-sm text-indigo-200 relative z-10 opacity-70">iOS version is currently in development.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-electric-500 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-location-arrow text-sm"></i>
+                        </div>
+                        <span class="font-bold text-lg text-slate-900">Safarnama</span>
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed max-w-sm mb-4">
+                        Built with ❤️ using Flutter. A project by Agam Singh Saini to make public transport in NSW easier, faster, and more beautiful.
+                    </p>
+                    <div class="p-4 bg-electric-50 rounded-xl border border-electric-100 inline-block">
+                        <p class="text-xs font-semibold text-electric-600 mb-1">🚀 Open to Opportunities</p>
+                        <p class="text-slate-600 text-sm">
+                            I am currently seeking roles in <span class="font-bold text-slate-800">Data Science</span> and <span class="font-bold text-slate-800">Software Engineering</span>.
+                        </p>
+                    </div>
+                    <!-- Visible Email Link -->
+                    <div class="mt-6">
+                        <a href="mailto:agamsingh.saini@students.uts.edu.au" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-slate-600 hover:text-electric-500 transition text-sm font-medium">
+                            <i class="fa-solid fa-envelope text-electric-500"></i>
+                            agamsingh.saini@students.uts.edu.au
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-600">
+                        <li><a href="#features" class="hover:text-electric-500 transition">Features</a></li>
+                        <li><a href="#comparison" class="hover:text-electric-500 transition">Comparison</a></li>
+                        <li><a href="https://doombuoy.github.io/Portfolio/" target="_blank" class="hover:text-electric-500 transition font-medium text-electric-600">My Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-4">Connect</h4>
+                    <div class="flex gap-4">
+                        <!-- Portfolio Icon -->
+                        <a href="https://doombuoy.github.io/Portfolio/" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-emerald-500 hover:text-white transition" title="Portfolio">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                        <a href="https://github.com/DoomBuoy" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-electric-500 hover:text-white transition" title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/agam-singh-saini-199185220" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-600 hover:text-white transition" title="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:agamsingh.saini@students.uts.edu.au" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-vibrant-500 hover:text-white transition" title="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-100 pt-8 text-center text-sm text-slate-400">
+                &copy; 2025 Safarnama. Not affiliated with Transport for NSW.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Intersection Observer for Fade-in animation -->
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach((el) => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
