@@ -82,6 +82,15 @@
             50% { opacity: 1; }
             100% { transform: translateY(10px); opacity: 0; }
         }
+
+        /* Modal Styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        body.modal-active {
+            overflow-x: hidden;
+            overflow-y: visible !important;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
@@ -91,9 +100,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-electric-500 to-vibrant-500 flex items-center justify-center text-white shadow-lg shadow-electric-500/30">
-                        <i class="fa-solid fa-location-arrow text-xl"></i>
-                    </div>
+                    <!-- Updated Logo in Navbar -->
+                    <img src="Asset/logo.png" alt="Safarnama Logo" class="w-10 h-10 rounded-xl shadow-lg shadow-electric-500/30 object-cover">
                     <span class="font-bold text-xl tracking-tight text-slate-900">Safar<span class="text-electric-500">nama</span></span>
                 </div>
                 
@@ -101,10 +109,10 @@
                     <a href="#features" class="text-slate-600 hover:text-electric-600 font-medium transition">Features</a>
                     <a href="#tracking" class="text-slate-600 hover:text-electric-600 font-medium transition">Live Tracking</a>
                     <a href="#comparison" class="text-slate-600 hover:text-electric-600 font-medium transition">Compare</a>
-                    <!-- Updated Navbar Download Link -->
-                    <a href="Asset/app-release.apk" download class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <!-- Updated Navbar Button to Open Modal -->
+                    <button onclick="toggleModal()" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         Download APK
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -142,14 +150,14 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <!-- Updated Hero Download Link -->
-                        <a href="Asset/app-release.apk" download class="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-xl hover:shadow-2xl shadow-slate-900/20 transform hover:-translate-y-1">
+                        <!-- Updated Hero Button to Open Modal -->
+                        <button onclick="toggleModal()" class="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-xl hover:shadow-2xl shadow-slate-900/20 transform hover:-translate-y-1">
                             <i class="fa-brands fa-android text-2xl text-green-400"></i>
                             <div class="text-left">
                                 <div class="text-xs text-slate-300">Download APK</div>
                                 <div class="text-sm font-bold">Android Only</div>
                             </div>
-                        </a>
+                        </button>
                         <button disabled class="flex items-center justify-center gap-3 bg-slate-100 text-slate-400 border border-slate-200 px-8 py-4 rounded-2xl cursor-not-allowed">
                             <i class="fa-brands fa-apple text-2xl"></i>
                             <div class="text-left">
@@ -393,8 +401,9 @@
 
                 <!-- Safarnama Result -->
                 <div class="flex flex-col items-center animate-pulse">
-                    <div class="w-24 h-24 bg-gradient-to-br from-electric-500 to-vibrant-500 rounded-3xl shadow-2xl shadow-electric-500/40 flex items-center justify-center text-5xl text-white transform hover:scale-110 transition duration-300">
-                        <i class="fa-solid fa-location-arrow"></i>
+                    <div class="w-24 h-24 bg-gradient-to-br from-electric-500 to-vibrant-500 rounded-3xl shadow-2xl shadow-electric-500/40 flex items-center justify-center transform hover:scale-110 transition duration-300">
+                        <!-- Updated: Logo Image Here -->
+                        <img src="Asset/logo.png" alt="Safarnama Logo" class="w-16 h-16 object-contain">
                     </div>
                     <h3 class="mt-6 text-2xl font-bold gradient-text">Safarnama</h3>
                     <p class="text-slate-500">The only app you need.</p>
@@ -533,14 +542,14 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
-                    <!-- Updated Bottom Download Link -->
-                    <a href="Asset/app-release.apk" download class="flex items-center justify-center gap-3 bg-slate-900 text-white border border-slate-700 px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg font-bold transform hover:scale-105">
+                    <!-- Updated Bottom Download Link to Open Modal -->
+                    <button onclick="toggleModal()" class="flex items-center justify-center gap-3 bg-slate-900 text-white border border-slate-700 px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-lg font-bold transform hover:scale-105">
                         <i class="fa-brands fa-android text-2xl text-green-400"></i> 
                         <div class="text-left">
                             <div class="text-xs text-slate-400">Download APK</div>
                             <div>Android Version</div>
                         </div>
-                    </a>
+                    </button>
                 </div>
                 <p class="mt-6 text-sm text-indigo-200 relative z-10 opacity-70">iOS version is currently in development.</p>
             </div>
@@ -553,9 +562,8 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-2">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-electric-500 flex items-center justify-center text-white">
-                            <i class="fa-solid fa-location-arrow text-sm"></i>
-                        </div>
+                        <!-- Updated Logo in Footer -->
+                        <img src="Asset/logo.png" alt="Safarnama Logo" class="w-8 h-8 rounded-lg shadow-sm object-cover">
                         <span class="font-bold text-lg text-slate-900">Safarnama</span>
                     </div>
                     <p class="text-slate-500 text-sm leading-relaxed max-w-sm mb-4">
@@ -611,8 +619,133 @@
         </div>
     </footer>
 
-    <!-- Simple Intersection Observer for Fade-in animation -->
+    <!-- MODAL POPUP -->
+    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
+        <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+        
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-3xl shadow-2xl z-50 overflow-y-auto transform scale-95 transition-transform duration-300">
+            
+            <div class="modal-content py-6 text-left px-6">
+                <!-- Title -->
+                <div class="flex justify-between items-center pb-3">
+                    <p class="text-2xl font-bold text-slate-900">Download Safarnama</p>
+                    <div class="modal-close cursor-pointer z-50" onclick="toggleModal()">
+                        <i class="fa-solid fa-xmark text-slate-500 text-xl"></i>
+                    </div>
+                </div>
+
+                <p class="text-slate-500 mb-6">Please tell us a little about yourself to start the download. We use this to improve the app.</p>
+
+                <!-- Form -->
+                <form id="downloadForm" action="https://formspree.io/f/xreakgzd" method="POST" target="_blank">
+                    
+                    <div class="mb-4">
+                        <label class="block text-slate-700 text-sm font-bold mb-2" for="name">Full Name</label>
+                        <input class="shadow appearance-none border rounded-xl w-full py-3 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline focus:border-electric-500 transition" id="name" type="text" name="name" placeholder="Your Name">
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-slate-700 text-sm font-bold mb-2" for="email">Email Address <span class="text-red-500">*</span></label>
+                        <input class="shadow appearance-none border rounded-xl w-full py-3 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline focus:border-electric-500 transition" id="email" type="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="flex gap-4 mb-4">
+                        <div class="w-1/3">
+                            <label class="block text-slate-700 text-sm font-bold mb-2" for="age">Age</label>
+                            <input class="shadow appearance-none border rounded-xl w-full py-3 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline focus:border-electric-500 transition" id="age" type="number" name="age" placeholder="25">
+                        </div>
+                        <div class="w-2/3">
+                            <label class="block text-slate-700 text-sm font-bold mb-2" for="occupation">Occupation</label>
+                            <input class="shadow appearance-none border rounded-xl w-full py-3 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline focus:border-electric-500 transition" id="occupation" type="text" name="occupation" placeholder="e.g. Student">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-slate-700 text-sm font-bold mb-2" for="persona">I am a...</label>
+                        <select class="shadow border rounded-xl w-full py-3 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline bg-white" id="persona" name="persona">
+                            <option value="Commuter">Daily Commuter</option>
+                            <option value="Student">Student</option>
+                            <option value="Parent">Parent (School Bus)</option>
+                            <option value="Tourist">Tourist</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="block text-slate-700 text-sm font-bold mb-2" for="transport">Primary Transport</label>
+                        <select class="shadow border rounded-xl w-full py-3 px-3 text-slate-700 leading-tight focus:outline-none focus:shadow-outline bg-white" id="transport" name="transport_mode">
+                            <option value="Bus">Bus</option>
+                            <option value="Train">Train/Metro</option>
+                            <option value="Drive">Driving (Parking)</option>
+                            <option value="Mix">Mix</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-end pt-2">
+                        <button type="submit" class="w-full bg-electric-600 hover:bg-electric-700 text-white font-bold py-3 px-4 rounded-xl focus:outline-none focus:shadow-outline transition duration-300 shadow-lg">
+                            Get Download Link
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
+        // Modal Logic
+        const body = document.querySelector('body');
+        const modal = document.querySelector('.modal');
+        const modalContainer = document.querySelector('.modal-container');
+
+        function toggleModal() {
+            modal.classList.toggle('opacity-0');
+            modal.classList.toggle('pointer-events-none');
+            body.classList.toggle('modal-active');
+            
+            if (!modal.classList.contains('opacity-0')) {
+                modalContainer.classList.remove('scale-95');
+                modalContainer.classList.add('scale-100');
+            } else {
+                modalContainer.classList.add('scale-95');
+                modalContainer.classList.remove('scale-100');
+            }
+        }
+
+        // Close modal if clicking outside
+        modal.addEventListener('click', function(event) {
+            if(event.target === modal || event.target.classList.contains('modal-overlay')) {
+                toggleModal();
+            }
+        });
+
+        // Form Submit Logic
+        const form = document.getElementById("downloadForm");
+        
+        form.addEventListener("submit", function(event) {
+            // The form will submit to Formspree in the new tab (target="_blank")
+            
+            // Wait 1 second, then trigger the download programmatically
+            setTimeout(function() {
+                // Create a temporary link element
+                const link = document.createElement('a');
+                link.href = "Asset/app-release.apk"; 
+                link.setAttribute('download', 'Safarnama.apk'); // Force download attribute
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                
+                // Programmatically click it
+                link.click();
+                
+                // Clean up
+                document.body.removeChild(link);
+                
+                // Close the modal
+                toggleModal();
+            }, 1000);
+        });
+
+        // Intersection Observer for animations
         const observerOptions = {
             root: null,
             rootMargin: '0px',
