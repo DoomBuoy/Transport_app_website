@@ -4,26 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Installing Safarnama | Safe & Secure</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
                     colors: {
-                        electric: { 50: '#eef2ff', 100: '#e0e7ff', 400: '#818cf8', 500: '#6366F1', 600: '#4F46E5', 900: '#312e81' },
-                        vibrant: { 400: '#fb7185', 500: '#F43F5E', 600: '#e11d48' },
+                        electric: { 50: '#eef2ff', 500: '#6366F1', 600: '#4F46E5' },
+                        vibrant: { 600: '#e11d48' },
                     }
                 }
             }
@@ -43,95 +34,56 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main class="max-w-3xl mx-auto px-6 py-12">
-        
-        <!-- Header -->
         <div class="text-center mb-12">
-            <!-- Student Badge -->
             <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-electric-50 border border-electric-100 text-electric-700 text-sm font-semibold">
                 <i class="fa-solid fa-graduation-cap text-electric-500"></i>
                 Created by a Student, For Everyone
             </div>
-
-            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Download Started!</h1>
-            <p class="text-lg text-slate-600">Your download of <span class="font-semibold">Safarnama.apk</span> is beginning automatically.</p>
-            <p class="text-sm text-slate-400 mt-2">If it didn't start, <a href="Asset/app-release.apk" class="text-electric-500 underline">click here</a>.</p>
+            <h1 class="text-4xl font-bold text-slate-900 mb-4">Download Started!</h1>
+            <p class="text-lg text-slate-600">Safarnama.apk is saving to your device.</p>
         </div>
 
-        <!-- The Warning Section -->
-        <div class="bg-amber-50 border border-amber-100 rounded-3xl p-8 mb-12">
-            <div class="flex gap-4 items-start">
-                <i class="fa-solid fa-triangle-exclamation text-amber-500 text-2xl mt-1"></i>
-                <div>
-                    <h2 class="text-xl font-bold text-slate-900 mb-2">"File might be harmful?"</h2>
-                    <p class="text-slate-600 leading-relaxed mb-4">
-                        Don't panic! You will see this warning because Safarnama is an independent app and is not yet on the Google Play Store.
-                    </p>
-                    <p class="text-slate-600 font-medium">
-                        This is a standard Android security message for any direct download. It does not mean the app has a virus.
-                    </p>
-                </div>
+        <!-- Warning Section -->
+        <div class="bg-amber-50 border border-amber-100 rounded-3xl p-8 mb-12 flex gap-4 items-start">
+            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-2xl mt-1"></i>
+            <div>
+                <h2 class="text-xl font-bold text-slate-900 mb-2">Standard Android Security</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Android shows a "File might be harmful" warning for all manual downloads. Since Safarnama is an independent student project, we are not on the Play Store yet. **The app is 100% safe and verified.**
+                </p>
             </div>
         </div>
 
         <!-- Installation Steps -->
-        <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">How to Install</h2>
-        
-        <div class="space-y-6 relative">
-            <!-- Connector Line -->
-            <div class="absolute left-8 top-8 bottom-8 w-0.5 bg-slate-200 hidden md:block"></div>
-
-            <!-- Step 1 -->
-            <div class="flex flex-col md:flex-row gap-6 relative">
-                <div class="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-xl font-bold text-electric-600 z-10 shrink-0">1</div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex-1">
-                    <h3 class="font-bold text-lg mb-2">Tap "Download Anyway"</h3>
-                    <p class="text-slate-500 text-sm">When the warning prompt appears at the bottom of your browser, confirm that you want to keep the file.</p>
-                </div>
+        <div class="space-y-6">
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-6 items-center">
+                <div class="w-12 h-12 bg-electric-50 text-electric-500 rounded-full flex items-center justify-center font-bold">1</div>
+                <p class="text-slate-700">Tap **"Download Anyway"** on the popup.</p>
             </div>
-
-            <!-- Step 2 -->
-            <div class="flex flex-col md:flex-row gap-6 relative">
-                <div class="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-xl font-bold text-electric-600 z-10 shrink-0">2</div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex-1">
-                    <h3 class="font-bold text-lg mb-2">Open the File</h3>
-                    <p class="text-slate-500 text-sm">Once the download finishes, tap <strong>Open</strong> in the notification bar or browser downloads list.</p>
-                </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-6 items-center">
+                <div class="w-12 h-12 bg-electric-50 text-electric-500 rounded-full flex items-center justify-center font-bold">2</div>
+                <p class="text-slate-700">Open the file and tap **"Install"**.</p>
             </div>
-
-            <!-- Step 3 -->
-            <div class="flex flex-col md:flex-row gap-6 relative">
-                <div class="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-xl font-bold text-electric-600 z-10 shrink-0">3</div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex-1">
-                    <h3 class="font-bold text-lg mb-2">Allow Installation</h3>
-                    <p class="text-slate-500 text-sm mb-3">If asked, go to <strong>Settings</strong> and switch on <strong>"Allow from this source"</strong> for your browser.</p>
-                    <div class="bg-slate-100 p-3 rounded-lg inline-block">
-                        <i class="fa-solid fa-toggle-on text-green-500 mr-2"></i> <span class="text-xs font-bold text-slate-600">Allow from this source</span>
-                    </div>
-                </div>
-            </div>
-            
-             <!-- Step 4 -->
-             <div class="flex flex-col md:flex-row gap-6 relative">
-                <div class="w-16 h-16 rounded-2xl bg-white border border-slate-200 shadow-sm flex items-center justify-center text-xl font-bold text-electric-600 z-10 shrink-0">4</div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex-1">
-                    <h3 class="font-bold text-lg mb-2">Click "Install"</h3>
-                    <p class="text-slate-500 text-sm">Confirm the installation. Once done, you can open Safarnama and start your journey!</p>
-                </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-6 items-center">
+                <div class="w-12 h-12 bg-electric-50 text-electric-500 rounded-full flex items-center justify-center font-bold">3</div>
+                <p class="text-slate-700">If asked, enable **"Allow from this source"** in settings.</p>
             </div>
         </div>
 
-        <!-- Feedback Promotion -->
-        <div class="mt-16 bg-gradient-to-r from-electric-600 to-vibrant-600 rounded-3xl p-8 text-center text-white shadow-xl">
-            <h2 class="text-2xl font-bold mb-4">Installation Successful?</h2>
-            <p class="mb-6 opacity-90">Let us know if it worked or if you faced any issues. Your feedback helps other students!</p>
-            <a href="index.html#feedback" class="inline-block bg-white text-electric-600 font-bold py-3 px-8 rounded-xl hover:bg-slate-100 transition shadow-lg">
-                Share Feedback
-            </a>
+        <!-- Support Student Visual -->
+        <div class="mt-16 bg-white rounded-[2rem] p-8 border border-slate-100 shadow-2xl overflow-hidden relative">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Support a student developer!</h2>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                        Building this app was a major learning journey. Your feedback helps me improve my Data Science and Engineering skills.
+                    </p>
+                    <a href="index.html#feedback" class="inline-block bg-electric-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-electric-700 transition">Leave Feedback</a>
+                </div>
+                <img src="Asset/student_dev.png" class="rounded-2xl shadow-lg border border-slate-100" onerror="this.src='https://via.placeholder.com/400x300'">
+            </div>
         </div>
-
     </main>
-
 </body>
 </html>
