@@ -110,7 +110,8 @@
                     <div class="flex flex-wrap gap-3 justify-center lg:justify-start mb-6">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm animate-fade-in-up">
                             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            <span id="app-version-text" class="text-sm font-semibold text-slate-600">v1.0.0 Available for Android</span>
+                            <!-- Dynamic Version Text Placeholder -->
+                            <span id="app-version-text" class="text-sm font-semibold text-slate-600">Latest Version Available for Android</span>
                         </div>
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric-50 border border-electric-100 shadow-sm animate-fade-in-up">
                             <i class="fa-solid fa-graduation-cap text-electric-500"></i>
@@ -145,7 +146,6 @@
                     </div>
                 </div>
 
-                <!-- UPDATED PHONE MOCKUP WITH REAL IMAGE -->
                 <div class="relative lg:h-[700px] flex justify-center items-center">
                     <div class="absolute w-[500px] h-[500px] bg-gradient-to-tr from-electric-500 to-vibrant-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
                     <div class="relative z-10 animate-float">
@@ -153,7 +153,6 @@
                             <div class="h-[32px] w-[3px] bg-gray-800 absolute -left-[17px] top-[72px] rounded-l-lg"></div>
                             <div class="h-[46px] w-[3px] bg-gray-800 absolute -left-[17px] top-[124px] rounded-l-lg"></div>
                             <div class="rounded-[2rem] overflow-hidden w-full h-full bg-slate-100 relative">
-                                <!-- Using actual app screenshot -->
                                 <img src="Asset/main.jpg" alt="Safarnama App Interface" class="w-full h-full object-cover">
                             </div>
                         </div>
@@ -163,7 +162,7 @@
         </div>
     </section>
 
-    <!-- Features Grid (Restored) -->
+    <!-- Features Grid -->
     <section id="features" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -173,9 +172,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Multi-Mode Tracking Card -->
                 <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-electric-200 transition group hover:shadow-xl hover:shadow-electric-500/5 relative overflow-hidden">
-                     <!-- Background Image Overlay -->
                      <div class="absolute inset-0 opacity-10">
                         <img src="Asset/realtimemap.jpg" class="w-full h-full object-cover grayscale" alt="Map bg">
                      </div>
@@ -188,7 +185,6 @@
                     </div>
                 </div>
 
-                <!-- Live Car Parks Card -->
                 <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-vibrant-200 transition group hover:shadow-xl hover:shadow-vibrant-500/5 relative overflow-hidden">
                     <div class="absolute inset-0 opacity-10">
                         <img src="Asset/carpark.jpg" class="w-full h-full object-cover grayscale" alt="Carpark bg">
@@ -202,7 +198,6 @@
                     </div>
                 </div>
 
-                <!-- Smart Trip Planning Card -->
                 <div class="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-electric-200 transition group hover:shadow-xl hover:shadow-electric-500/5 relative overflow-hidden">
                     <div class="absolute inset-0 opacity-10">
                         <img src="Asset/route_page.jpg" class="w-full h-full object-cover grayscale" alt="Route bg">
@@ -383,9 +378,8 @@
                         </li>
                     </ul>
                 </div>
-                <!-- UPDATED: Using Real Time Map Screenshot -->
                 <div class="bg-slate-800 rounded-3xl p-4 shadow-2xl border border-slate-700">
-                    <img src="Asset/realtimemap.jpg" alt="Map View" class="rounded-2xl w-full h-auto object-cover border border-slate-700">
+                    <img src="Asset/realtimemap.jpg" alt="Map View" class="rounded-2xl w-full h-auto object-cover border border-slate-700" onerror="this.src='https://via.placeholder.com/600x400?text=Map+Preview'">
                 </div>
             </div>
         </div>
@@ -515,13 +509,15 @@
         const modal = document.querySelector('.modal');
         const modalContainer = document.querySelector('.modal-container');
 
-        // Dynamically fetch version from version.json
+        // Dynamically fetch version from version.json with cache busting
         async function fetchAppVersion() {
             try {
-                const response = await fetch('version.json');
+                // Add timestamp to prevent caching
+                const response = await fetch('version.json?t=' + new Date().getTime());
                 if (response.ok) {
                     const data = await response.json();
                     const versionText = document.getElementById('app-version-text');
+                    // Ensure the version is treated as a 3-bit semantic string (e.g., 1.0.0)
                     if (versionText && data.version) {
                         versionText.innerText = `v${data.version} Available for Android`;
                     }
