@@ -70,9 +70,40 @@
         .comp-card:hover {
             transform: translateY(-5px);
         }
+
+        /* Intro Screen Transitions */
+        #intro-overlay {
+            transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+        }
+        .intro-hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+<!-- Note: overflow-hidden is added initially to prevent scrolling before entry -->
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden overflow-hidden" id="main-body">
+
+    <!-- HIDDEN AUDIO ELEMENT -->
+    <audio id="bg-music" src="Asset/music.mp4" preload="auto"></audio>
+
+    <!-- INTRO OVERLAY (CLICK TO ENTER) -->
+    <div id="intro-overlay" class="fixed inset-0 z-[100] bg-slate-900 flex flex-col items-center justify-center">
+        <!-- Abstract Background Glows -->
+        <div class="absolute w-[500px] h-[500px] bg-electric-600 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
+        <div class="absolute w-[400px] h-[400px] bg-vibrant-600 rounded-full blur-[100px] opacity-20 mix-blend-screen translate-x-32 translate-y-32"></div>
+        
+        <div class="relative z-10 flex flex-col items-center text-center px-4">
+            <img src="Asset/logo.png" alt="Safarnama Logo" class="w-28 h-28 mb-8 rounded-3xl shadow-2xl shadow-electric-500/50 object-cover" onerror="this.src='https://via.placeholder.com/112'">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-white tracking-tight">Safar<span class="text-electric-500">nama</span></h1>
+            <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-md">Navigate NSW with electric ease. Real-time tracking, live car parks, and smart trip planning.</p>
+            
+            <button onclick="enterSite()" class="bg-gradient-to-r from-electric-500 to-vibrant-500 text-white font-bold py-4 px-12 rounded-full shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(99,102,241,0.6)] transition-all duration-300 animate-bounce">
+                Enter Journey
+            </button>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-slate-100" id="navbar">
@@ -110,7 +141,6 @@
                     <div class="flex flex-wrap gap-3 justify-center lg:justify-start mb-6">
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm animate-fade-in-up">
                             <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            <!-- Dynamic Version Text Placeholder -->
                             <span id="app-version-text" class="text-sm font-semibold text-slate-600">Latest Version Available for Android</span>
                         </div>
                         <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric-50 border border-electric-100 shadow-sm animate-fade-in-up">
@@ -125,7 +155,7 @@
                     </h1>
                     
                     <p class="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                        The ultimate all-in-one transit companion. Built from scratch to solve real commuting problems for NSW students and workers alike.
+                        Google Maps shows you a plan. Safarnama shows you the reality. With 5-second live GPS refreshes and real-time car park counts, you'll never chase a phantom bus again.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -161,6 +191,7 @@
             </div>
         </div>
     </section>
+
     <!-- Features Grid -->
     <section id="features" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -171,31 +202,28 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Multi-Mode Tracking Card -->
                 <div class="p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-electric-500 transition-all duration-300 group hover:shadow-xl hover:shadow-electric-500/10">
                      <div class="w-14 h-14 rounded-2xl bg-electric-50 text-electric-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300 border border-electric-100">
                         <i class="fa-solid fa-location-crosshairs"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-slate-900">Multi-Mode Tracking</h3>
-                    <p class="text-slate-600 leading-relaxed">Live GTFS positions for Metro, Trains, Buses, Ferries, and Light Rail.</p>
+                    <p class="text-slate-600 leading-relaxed">Live GTFS positions for Metro, Trains, Buses, Ferries, and Light Rail updated every 5 seconds.</p>
                 </div>
 
-                <!-- Live Car Parks Card -->
                 <div class="p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-vibrant-500 transition-all duration-300 group hover:shadow-xl hover:shadow-vibrant-500/10">
                     <div class="w-14 h-14 rounded-2xl bg-vibrant-50 text-vibrant-500 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300 border border-vibrant-100">
                         <i class="fa-solid fa-square-parking"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-slate-900">Live Car Parks</h3>
-                    <p class="text-slate-600 leading-relaxed">Real-time occupancy data with zone-level breakdowns.</p>
+                    <p class="text-slate-600 leading-relaxed">Real-time occupancy data with zone-level breakdowns so you never drive into a full lot.</p>
                 </div>
 
-                <!-- Smart Trip Planning Card -->
                 <div class="p-8 rounded-3xl bg-white border-2 border-slate-100 hover:border-electric-500 transition-all duration-300 group hover:shadow-xl hover:shadow-electric-500/10">
                     <div class="w-14 h-14 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300 border border-indigo-100">
                         <i class="fa-solid fa-route"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-slate-900">Smart Trip Planning</h3>
-                    <p class="text-slate-600 leading-relaxed">Special support for School Buses (Yellow) and On-Demand (Purple) services.</p>
+                    <p class="text-slate-600 leading-relaxed">Flexible "Leave Now" or "Arrive By" scheduling with instant suggestions for Home & Work.</p>
                 </div>
             </div>
         </div>
@@ -492,19 +520,32 @@
     </div>
 
     <script>
-        const body = document.querySelector('body');
+        // Intro Screen & Music Logic
+        function enterSite() {
+            const overlay = document.getElementById('intro-overlay');
+            const music = document.getElementById('bg-music');
+            const body = document.getElementById('main-body');
+
+            // Play music once
+            music.volume = 0.5; // Set volume to 50%
+            music.play().catch(e => console.log("Audio play failed:", e));
+
+            // Hide overlay and allow scrolling
+            overlay.classList.add('intro-hidden');
+            body.classList.remove('overflow-hidden');
+        }
+
+        const body = document.getElementById('main-body');
         const modal = document.querySelector('.modal');
         const modalContainer = document.querySelector('.modal-container');
 
         // Dynamically fetch version from version.json with cache busting
         async function fetchAppVersion() {
             try {
-                // Add timestamp to prevent caching
                 const response = await fetch('version.json?t=' + new Date().getTime());
                 if (response.ok) {
                     const data = await response.json();
                     const versionText = document.getElementById('app-version-text');
-                    // Ensure the version is treated as a 3-bit semantic string (e.g., 1.0.0)
                     if (versionText && data.version) {
                         versionText.innerText = `v${data.version} Available for Android`;
                     }
