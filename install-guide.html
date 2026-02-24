@@ -3,87 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Installing Safarnama | Safe & Secure</title>
+    <title>Installing Safarnama | Step-by-Step Guide</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
                     colors: {
-                        electric: { 50: '#eef2ff', 500: '#6366F1', 600: '#4F46E5' },
-                        vibrant: { 600: '#e11d48' },
+                        electric: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366F1', 600: '#4F46E5', 900: '#312e81' },
+                        vibrant: { 100: '#ffe4e6', 500: '#F43F5E', 600: '#e11d48' },
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
 
     <!-- Simple Nav -->
-    <nav class="w-full bg-white border-b border-slate-100 py-4">
+    <nav class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 py-4 sticky top-0 z-50">
         <div class="max-w-4xl mx-auto px-6 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <img src="Asset/logo.png" alt="Safarnama" class="w-8 h-8 rounded-lg shadow-sm">
+                <img src="Asset/logo.png" alt="Safarnama" class="w-8 h-8 rounded-lg shadow-sm object-cover" onerror="this.src='https://via.placeholder.com/32'">
                 <span class="font-bold text-xl tracking-tight text-slate-900">Safar<span class="text-electric-500">nama</span></span>
             </div>
-            <a href="index.html" class="text-sm font-medium text-slate-500 hover:text-electric-500">Back to Home</a>
+            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-electric-600 transition flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto px-6 py-12">
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-12 w-full">
+        <!-- Header -->
         <div class="text-center mb-12">
-            <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-electric-50 border border-electric-100 text-electric-700 text-sm font-semibold">
-                <i class="fa-solid fa-graduation-cap text-electric-500"></i>
-                Created by a Student, For Everyone
+            <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-green-50 border border-green-200 text-green-700 text-sm font-bold shadow-sm">
+                <i class="fa-solid fa-circle-check animate-pulse"></i>
+                Download Started Successfully!
             </div>
-            <h1 class="text-4xl font-bold text-slate-900 mb-4">Download Started!</h1>
-            <p class="text-lg text-slate-600">Safarnama.apk is saving to your device.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">How to install Safarnama</h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                Because Safarnama is an independent student project, it isn't on the Google Play Store yet. Your Android phone will show a standard security prompt. Here is exactly how to bypass it safely.
+            </p>
         </div>
 
-        <!-- Warning Section -->
-        <div class="bg-amber-50 border border-amber-100 rounded-3xl p-8 mb-12 flex gap-4 items-start">
-            <i class="fa-solid fa-triangle-exclamation text-amber-500 text-2xl mt-1"></i>
+        <!-- Warning Context -->
+        <div class="bg-amber-50 border border-amber-200 rounded-3xl p-6 mb-12 flex gap-4 items-start shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-1">
+                <i class="fa-solid fa-shield-halved text-amber-600 text-xl"></i>
+            </div>
             <div>
-                <h2 class="text-xl font-bold text-slate-900 mb-2">Standard Android Security</h2>
-                <p class="text-slate-600 leading-relaxed">
-                    Android shows a "File might be harmful" warning for all manual downloads. Since Safarnama is an independent student project, we are not on the Play Store yet. **The app is 100% safe and verified.**
+                <h2 class="text-lg font-bold text-slate-900 mb-1">Standard Android Security Prompts</h2>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Android devices flag <strong>all</strong> direct APK downloads with permission requests and a "Play Protect" warning. Don't worry—this is completely normal for beta apps. Safarnama is 100% safe, ad-free, and respects your privacy.
                 </p>
             </div>
         </div>
 
         <!-- Installation Steps -->
-        <div class="space-y-6">
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-6 items-center">
-                <div class="w-12 h-12 bg-electric-50 text-electric-500 rounded-full flex items-center justify-center font-bold">1</div>
-                <p class="text-slate-700">Tap **"Download Anyway"** on the popup.</p>
+        <div class="space-y-16">
+            
+            <!-- Step 1 -->
+            <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+                <div class="order-2 md:order-1 flex justify-center">
+                    <div class="relative max-w-[280px]">
+                        <div class="absolute -inset-4 bg-electric-500/20 rounded-[3rem] blur-xl"></div>
+                        <img src="Asset/step-1.jpg" alt="Settings - Install unknown apps" class="relative rounded-[2rem] border-[6px] border-slate-900 shadow-2xl w-full object-contain" onerror="this.src='https://via.placeholder.com/300x600?text=Step+1+Image'">
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="w-12 h-12 bg-electric-100 text-electric-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6 shadow-sm border border-electric-200">1</div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Go to "Install unknown apps"</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Before you can install the file, your phone needs permission. Go to your device <strong>Settings</strong>, search for <strong>Special access</strong>, and tap on <strong>Install unknown apps</strong>.
+                    </p>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-6 items-center">
-                <div class="w-12 h-12 bg-electric-50 text-electric-500 rounded-full flex items-center justify-center font-bold">2</div>
-                <p class="text-slate-700">Open the file and tap **"Install"**.</p>
+
+            <!-- Step 2 -->
+            <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+                <div>
+                    <div class="w-12 h-12 bg-vibrant-100 text-vibrant-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6 shadow-sm border border-vibrant-200">2</div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Allow Your Browser</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Find the browser you used to download Safarnama (such as <strong>Chrome</strong> or Samsung Internet) in the list and <strong>toggle the switch to ON</strong>. This allows your browser to run the installer.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative max-w-[280px]">
+                        <div class="absolute -inset-4 bg-vibrant-500/20 rounded-[3rem] blur-xl"></div>
+                        <img src="Asset/step0.jpg" alt="Allow browser toggle" class="relative rounded-[2rem] border-[6px] border-slate-900 shadow-2xl w-full object-contain" onerror="this.src='https://via.placeholder.com/300x600?text=Step+2+Image'">
+                    </div>
+                </div>
             </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-6 items-center">
-                <div class="w-12 h-12 bg-electric-50 text-electric-500 rounded-full flex items-center justify-center font-bold">3</div>
-                <p class="text-slate-700">If asked, enable **"Allow from this source"** in settings.</p>
+
+            <!-- Step 3 (New Step) -->
+            <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+                <div class="order-2 md:order-1 flex justify-center">
+                    <div class="relative max-w-[280px]">
+                        <div class="absolute -inset-4 bg-electric-500/20 rounded-[3rem] blur-xl"></div>
+                        <img src="Asset/click_apk.jpg" alt="Click the downloaded APK" class="relative rounded-[2rem] border-[6px] border-slate-900 shadow-2xl w-full object-contain" onerror="this.src='https://via.placeholder.com/300x600?text=Step+3+Image'">
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="w-12 h-12 bg-electric-100 text-electric-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6 shadow-sm border border-electric-200">3</div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Click the downloaded APK</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Navigate to your <strong>Downloads</strong> folder in your file manager or browser. Tap on the <code>Safarnama.apk</code> file to initiate the installation process.
+                    </p>
+                </div>
             </div>
+
+            <!-- Step 4 -->
+            <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+                <div>
+                    <div class="w-12 h-12 bg-vibrant-100 text-vibrant-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6 shadow-sm border border-vibrant-200">4</div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Tap "More details"</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        When the Google Play Protect screen appears saying "App scan recommended", <strong>do not click Scan App or Don't Install.</strong> Instead, tap the small <strong>"More details"</strong> dropdown arrow.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="relative max-w-[280px]">
+                        <div class="absolute -inset-4 bg-vibrant-500/20 rounded-[3rem] blur-xl"></div>
+                        <img src="Asset/step1.jpg" alt="Expand more details" class="relative rounded-[2rem] border-[6px] border-slate-900 shadow-2xl w-full object-contain" onerror="this.src='https://via.placeholder.com/300x600?text=Step+4+Image'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+                <div class="order-2 md:order-1 flex justify-center">
+                    <div class="relative max-w-[280px]">
+                        <div class="absolute -inset-4 bg-electric-500/20 rounded-[3rem] blur-xl"></div>
+                        <img src="Asset/step2.jpg" alt="Install without scanning" class="relative rounded-[2rem] border-[6px] border-slate-900 shadow-2xl w-full object-contain" onerror="this.src='https://via.placeholder.com/300x600?text=Step+5+Image'">
+                    </div>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="w-12 h-12 bg-electric-100 text-electric-600 rounded-2xl flex items-center justify-center font-black text-xl mb-6 shadow-sm border border-electric-200">5</div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4">Tap "Install without scanning"</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-6">
+                        Once the menu expands, you will see a hidden button appear.
+                        <br><br>
+                        Tap on <strong>"Install without scanning"</strong>. The installation will now complete successfully, and you can open Safarnama!
+                    </p>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Support Student Visual -->
-        <div class="mt-16 bg-white rounded-[2rem] p-8 border border-slate-100 shadow-2xl overflow-hidden relative">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-900 mb-4">Support a student developer!</h2>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                        Building this app was a major learning journey. Your feedback helps me improve my Data Science and Engineering skills.
-                    </p>
-                    <a href="index.html#feedback" class="inline-block bg-electric-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-electric-700 transition">Leave Feedback</a>
+        <!-- Student Developer Support Block -->
+        <div class="mt-20 bg-slate-900 rounded-[2.5rem] p-10 border border-slate-800 shadow-2xl text-center text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-electric-500 rounded-full blur-[100px] opacity-30"></div>
+            <div class="absolute bottom-0 left-0 w-64 h-64 bg-vibrant-500 rounded-full blur-[100px] opacity-30"></div>
+            
+            <div class="relative z-10">
+                <i class="fa-solid fa-laptop-code text-4xl text-electric-400 mb-6"></i>
+                <h2 class="text-3xl font-bold mb-4">Support a Student Developer</h2>
+                <p class="text-slate-300 text-lg mb-8 max-w-xl mx-auto">
+                    Building this app was a massive learning journey in Data Science and Mobile Engineering. If you find Safarnama helpful, please let me know or share it with a friend!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html#feedback" class="bg-white text-slate-900 px-8 py-3 rounded-full font-bold hover:bg-slate-100 transition shadow-lg">Leave Feedback</a>
+                    <a href="https://www.linkedin.com/in/agam-singh-saini-199185220" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-full font-bold hover:bg-blue-700 transition shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn
+                    </a>
                 </div>
-                <img src="Asset/student_dev.png" class="rounded-2xl shadow-lg border border-slate-100" onerror="this.src='https://via.placeholder.com/400x300'">
             </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-8 text-slate-400 text-sm mt-auto border-t border-slate-200">
+        &copy; 2026 Safarnama. Created by Agam Singh Saini.
+    </footer>
+
 </body>
 </html>
