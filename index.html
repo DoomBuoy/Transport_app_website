@@ -82,7 +82,6 @@
         }
     </style>
 </head>
-<!-- Note: overflow-hidden is added initially to prevent scrolling before entry -->
 <body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden overflow-hidden" id="main-body">
 
     <!-- HIDDEN AUDIO ELEMENT -->
@@ -90,7 +89,6 @@
 
     <!-- INTRO OVERLAY (CLICK TO ENTER) -->
     <div id="intro-overlay" class="fixed inset-0 z-[100] bg-slate-900 flex flex-col items-center justify-center">
-        <!-- Abstract Background Glows -->
         <div class="absolute w-[500px] h-[500px] bg-electric-600 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
         <div class="absolute w-[400px] h-[400px] bg-vibrant-600 rounded-full blur-[100px] opacity-20 mix-blend-screen translate-x-32 translate-y-32"></div>
         
@@ -355,7 +353,7 @@
                     </div>
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">Designed by a student, built for the community.</h2>
                     <p class="text-slate-600 text-lg leading-relaxed mb-6">
-                        Safarnama isn't just another corporate app. It started as a passion project at UTS by <b>Agam Singh Saini</b> to tackle the frustrations of daily transit in Sydney.
+                        Safarnama isn't just another corporate app. It started as a passion project at UTS by **Agam Singh Saini** to tackle the frustrations of daily transit in Sydney.
                     </p>
                     <div class="grid grid-cols-2 gap-8">
                         <div>
@@ -458,7 +456,7 @@
                 <a href="mailto:agamsingh.saini@students.uts.edu.au" class="text-slate-400 hover:text-electric-500"><i class="fa-solid fa-envelope text-xl"></i></a>
             </div>
             <div class="text-xs text-slate-400 border-t border-slate-50 pt-8">
-                &copy; 2025 Safarnama. Not affiliated with Transport for NSW.
+                &copy; 2026 Safarnama. Not affiliated with Transport for NSW.
             </div>
         </div>
     </footer>
@@ -466,10 +464,39 @@
     <!-- MODAL POPUP -->
     <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
         <div class="modal-overlay absolute w-full h-full bg-gray-900/60 backdrop-blur-sm"></div>
-        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-[2rem] shadow-2xl z-50 overflow-y-auto transform scale-95 transition-all duration-300">
-            <div class="modal-content py-8 px-8">
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-[2rem] shadow-2xl z-50 overflow-hidden transform scale-95 transition-all duration-300">
+            
+            <!-- STEP 1: USER TYPE SELECTION -->
+            <div id="modal-step-1" class="py-8 px-8 transition-all duration-300">
+                <div class="flex justify-between items-center mb-6">
+                    <p class="text-2xl font-bold text-slate-900">Welcome to Safarnama</p>
+                    <button onclick="toggleModal()" class="text-slate-400 hover:text-slate-600 transition">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+                <p class="text-slate-500 mb-8 text-sm">Have you downloaded Safarnama before?</p>
+                
+                <div class="space-y-4">
+                    <!-- New User Button -->
+                    <button onclick="showDownloadForm()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-4 rounded-xl transition flex items-center justify-center gap-3 border border-slate-200">
+                        <i class="fa-solid fa-user-plus text-electric-600"></i> I'm a New User
+                    </button>
+                    <!-- Old User Button (Skips form) - FIXED STYLING -->
+                    <button onclick="triggerDownloadAndRedirect()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl shadow-lg transition flex items-center justify-center gap-3 border border-slate-800">
+                        <i class="fa-solid fa-user-check"></i> Returning User (Update)
+                    </button>
+                </div>
+            </div>
+
+            <!-- STEP 2: DOWNLOAD FORM (Hidden by default) -->
+            <div id="modal-step-2" class="py-8 px-8 hidden transition-all duration-300">
                 <div class="flex justify-between items-center mb-4">
-                    <p class="text-2xl font-bold text-slate-900">Download App</p>
+                    <div class="flex items-center gap-3">
+                        <button onclick="showUserSelection()" class="text-slate-400 hover:text-electric-600 transition" title="Go Back">
+                            <i class="fa-solid fa-arrow-left text-lg"></i>
+                        </button>
+                        <p class="text-2xl font-bold text-slate-900">Download App</p>
+                    </div>
                     <button onclick="toggleModal()" class="text-slate-400 hover:text-slate-600 transition">
                         <i class="fa-solid fa-xmark text-xl"></i>
                     </button>
@@ -511,7 +538,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="w-full bg-gradient-to-r from-electric-600 to-vibrant-600 text-white font-bold py-4 rounded-xl shadow-lg hover:shadow-electric-500/20 active:scale-95 transition">
+                    <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl shadow-lg transition">
                         Get Download Link
                     </button>
                 </form>
@@ -538,14 +565,18 @@
         const body = document.getElementById('main-body');
         const modal = document.querySelector('.modal');
         const modalContainer = document.querySelector('.modal-container');
+        const step1 = document.getElementById('modal-step-1');
+        const step2 = document.getElementById('modal-step-2');
 
         // Dynamically fetch version from version.json with cache busting
         async function fetchAppVersion() {
             try {
+                // Add timestamp to prevent caching
                 const response = await fetch('version.json?t=' + new Date().getTime());
                 if (response.ok) {
                     const data = await response.json();
                     const versionText = document.getElementById('app-version-text');
+                    // Ensure the version is treated as a 3-bit semantic string (e.g., 1.0.0)
                     if (versionText && data.version) {
                         versionText.innerText = `v${data.version} Available for Android`;
                     }
@@ -560,19 +591,32 @@
             modal.classList.toggle('opacity-0');
             modal.classList.toggle('pointer-events-none');
             body.classList.toggle('modal-active');
+            
             if (!modal.classList.contains('opacity-0')) {
                 modalContainer.classList.add('scale-100');
                 modalContainer.classList.remove('scale-95');
+                // Always reset to Step 1 when opening the modal
+                showUserSelection();
             } else {
                 modalContainer.classList.remove('scale-100');
                 modalContainer.classList.add('scale-95');
             }
         }
 
+        function showDownloadForm() {
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+        }
+
+        function showUserSelection() {
+            step2.classList.add('hidden');
+            step1.classList.remove('hidden');
+        }
+
         const form = document.getElementById("downloadForm");
         form.addEventListener("submit", function(event) {
             event.preventDefault();
-            const btn = form.querySelector('button');
+            const btn = form.querySelector('button[type="submit"]');
             btn.innerText = "Processing...";
             btn.disabled = true;
 
@@ -582,16 +626,29 @@
                 body: data,
                 headers: { 'Accept': 'application/json' }
             }).then(() => {
-                const link = document.createElement('a');
-                link.href = "Asset/app-release.apk";
-                link.setAttribute('download', 'Safarnama.apk');
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                toggleModal();
-                setTimeout(() => { window.location.href = "install-guide.html"; }, 500);
+                triggerDownloadAndRedirect();
+            }).catch(error => {
+                console.error("Form submission failed", error);
+                // Still allow download on network error just in case
+                triggerDownloadAndRedirect();
             });
         });
+
+        function triggerDownloadAndRedirect() {
+            const link = document.createElement('a');
+            link.href = "Asset/app-release.apk";
+            link.setAttribute('download', 'Safarnama.apk');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // If modal is open, close it
+            if (!modal.classList.contains('opacity-0')) {
+                toggleModal();
+            }
+            
+            setTimeout(() => { window.location.href = "install-guide.html"; }, 500);
+        }
 
         // Intersection Observer for animations
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
