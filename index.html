@@ -100,6 +100,17 @@
             <button onclick="enterSite()" class="bg-gradient-to-r from-electric-500 to-vibrant-500 text-white font-bold py-4 px-12 rounded-full shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(99,102,241,0.6)] transition-all duration-300 animate-bounce">
                 Enter Journey
             </button>
+
+            <!-- Audio Warning and Toggle -->
+            <div class="mt-8 flex flex-col items-center gap-3">
+                <span class="text-slate-400 text-sm flex items-center gap-2">
+                    <i class="fa-solid fa-volume-high text-electric-400"></i> Sound will play on entry
+                </span>
+                <button onclick="toggleSoundPreference()" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm bg-slate-800/80 px-5 py-2 rounded-full border border-slate-700 shadow-lg">
+                    <i id="sound-toggle-icon" class="fa-solid fa-volume-xmark"></i>
+                    <span id="sound-toggle-text">Click here to mute</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -558,14 +569,33 @@
 
     <script>
         // Intro Screen & Music Logic
+        let playSound = true;
+
+        function toggleSoundPreference() {
+            playSound = !playSound;
+            const icon = document.getElementById('sound-toggle-icon');
+            const text = document.getElementById('sound-toggle-text');
+            
+            if (playSound) {
+                icon.className = 'fa-solid fa-volume-xmark';
+                icon.classList.remove('text-rose-500');
+                text.innerText = 'Click here to mute';
+            } else {
+                icon.className = 'fa-solid fa-volume-off text-rose-500';
+                text.innerText = 'Sound Muted';
+            }
+        }
+
         function enterSite() {
             const overlay = document.getElementById('intro-overlay');
             const music = document.getElementById('bg-music');
             const body = document.getElementById('main-body');
 
-            // Play music once
-            music.volume = 0.5; // Set volume to 50%
-            music.play().catch(e => console.log("Audio play failed:", e));
+            // Play music only if the user hasn't muted it
+            if (playSound) {
+                music.volume = 0.5; // Set volume to 50%
+                music.play().catch(e => console.log("Audio play failed:", e));
+            }
 
             // Hide overlay and allow scrolling
             overlay.classList.add('intro-hidden');
