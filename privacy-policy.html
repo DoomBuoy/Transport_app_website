@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Safarnama</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        electric: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366F1', 600: '#4F46E5', 900: '#312e81' },
+                        vibrant: { 100: '#ffe4e6', 500: '#F43F5E', 600: '#e11d48' },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Simple Nav -->
+    <nav class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 py-4 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="Asset/logo.png" alt="Safarnama" class="w-8 h-8 rounded-lg shadow-sm object-cover" onerror="this.src='https://via.placeholder.com/32'">
+                <span class="font-bold text-xl tracking-tight text-slate-900">Safar<span class="text-electric-500">nama</span></span>
+            </div>
+            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-electric-600 transition flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-16 w-full">
+        <div class="bg-white p-8 md:p-14 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+            <div class="mb-10 text-center">
+                <div class="w-16 h-16 bg-electric-50 text-electric-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 shadow-sm border border-electric-100">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h1 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Privacy Policy for Safarnama</h1>
+                <p class="text-slate-500 font-medium">Effective Date: February 28, 2026</p>
+            </div>
+
+            <div class="space-y-10">
+                
+                <!-- Introduction -->
+                <section>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Agam Singh Saini ("we", "us", or "our") built the Safarnama app (the "App") as a Free app. This SERVICE is provided by Agam Singh Saini at no cost and is intended for use as is.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed">
+                        By choosing to use our Service, you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.
+                    </p>
+                </section>
+
+                <!-- Information Collection and Use -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Information Collection and Use</h2>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        For a better experience while using our Service, we may require you to provide us with certain personally identifiable information.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">1. Location Data</h3>
+                            <p class="text-slate-600 leading-relaxed mb-3">
+                                The App requests access to your device's location data (Fine and Coarse location).
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-600 space-y-2 bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                <li><strong>Why we need it:</strong> We use this data strictly to provide core functionality, such as finding your current location to calculate transit routes, showing nearby transport stops, and calculating distances to points of interest.</li>
+                                <li><strong>How it is handled:</strong> Your location data is processed in real-time and transmitted securely to third-party routing and mapping APIs (Transport for NSW, TomTom) to fetch transit directions.</li>
+                                <li><strong>Data Sharing & Storage:</strong> We do not store your location data on any external servers, nor do we sell or share your location history with advertising networks or third-party data brokers.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">2. Local Device Storage</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                The App allows you to save "Home," "Work," and "Favorite" locations, as well as a history of "Recent Trips." This data is stored entirely locally on your device using local storage mechanisms (SharedPreferences). We do not have access to this data, and it is not uploaded to our servers. You can clear this data at any time by clearing the App's data in your device settings.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">3. Analytics and Crash Reporting</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                We currently do not use any third-party analytics or crash tracking tools (such as Firebase Analytics or Crashlytics). We do not silently collect diagnostic data about your usage of the App.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">4. Advertising</h3>
+                            <p class="text-slate-600 leading-relaxed">
+                                The App is currently ad-free and does not use third-party advertising networks. If we decide to introduce advertisements in the future, this Privacy Policy will be updated to reflect the networks used and any associated data collection.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Third-Party Services -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Third-Party Services</h2>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        The App uses third-party services that may collect information used to identify you or to process your requests (such as mapping a route). These third-party service providers include:
+                    </p>
+                    <ul class="list-disc pl-6 text-slate-600 space-y-2 mb-4 font-medium">
+                        <li>Transport for NSW (TfNSW) Open Data API: <span class="font-normal text-slate-500">Used for transit routes, alerts, and stops.</span></li>
+                        <li>TomTom API: <span class="font-normal text-slate-500">Used for location and point of interest (POI) searching.</span></li>
+                        <li>OpenStreetMap (Nominatim): <span class="font-normal text-slate-500">Used as a fallback for location searching.</span></li>
+                    </ul>
+                    <p class="text-slate-600 leading-relaxed">
+                        We recommend reviewing the Privacy Policies of these third-party service providers to understand how they handle data transmitted via their APIs.
+                    </p>
+                </section>
+
+                <!-- Security -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Security</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
+                    </p>
+                </section>
+
+                <!-- Links to Other Sites -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Links to Other Sites</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        This Service may contain links to other sites (such as external portfolio links). If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites. We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.
+                    </p>
+                </section>
+
+                <!-- Children's Privacy -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Children’s Privacy</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13. In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to do necessary actions.
+                    </p>
+                </section>
+
+                <!-- Changes to This Privacy Policy -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Changes to This Privacy Policy</h2>
+                    <p class="text-slate-600 leading-relaxed">
+                        We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.
+                    </p>
+                </section>
+
+                <!-- Contact Us -->
+                <section class="bg-electric-50 p-8 rounded-3xl border border-electric-100 text-center">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Contact Us</h2>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.
+                    </p>
+                    <a href="mailto:agamsingh.saini@students.uts.edu.au" class="inline-flex items-center gap-2 bg-electric-600 hover:bg-electric-700 text-white font-bold py-3 px-6 rounded-full transition shadow-lg shadow-electric-500/30">
+                        <i class="fa-solid fa-envelope"></i> agamsingh.saini@students.uts.edu.au
+                    </a>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-8 text-slate-400 text-sm mt-auto border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 Safarnama. Not affiliated with Transport for NSW.</span>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-electric-500 transition">Home</a>
+                <a href="install-guide.html" class="hover:text-electric-500 transition">Install Guide</a>
+                <a href="privacy-policy.html" class="text-electric-500 font-medium">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
