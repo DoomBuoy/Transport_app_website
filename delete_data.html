@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion | Safarnama</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        electric: { 50: '#eef2ff', 100: '#e0e7ff', 500: '#6366F1', 600: '#4F46E5', 900: '#312e81' },
+                        vibrant: { 100: '#ffe4e6', 500: '#F43F5E', 600: '#e11d48' },
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Simple Nav -->
+    <nav class="w-full bg-white/80 backdrop-blur-md border-b border-slate-100 py-4 sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="Asset/logo.png" alt="Safarnama" class="w-8 h-8 rounded-lg shadow-sm object-cover" onerror="this.src='https://via.placeholder.com/32'">
+                <span class="font-bold text-xl tracking-tight text-slate-900">Safar<span class="text-electric-500">nama</span></span>
+            </div>
+            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-electric-600 transition flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-16 w-full">
+        <div class="bg-white p-8 md:p-14 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50">
+            
+            <div class="mb-10 text-center">
+                <div class="w-16 h-16 bg-electric-50 text-electric-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6 shadow-sm border border-electric-100">
+                    <i class="fa-solid fa-trash-can"></i>
+                </div>
+                <h1 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Data Deletion Instructions</h1>
+                <p class="text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed">
+                    Safarnama puts your privacy first. <strong>We do not store your data on any remote servers.</strong> All your personal data is saved locally on your device. Because of this, you have complete and instant control over deleting your data.
+                </p>
+            </div>
+
+            <div class="space-y-10">
+                
+                <!-- How to Delete -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-100 pb-2">How to Delete Your Data</h2>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Method 1 -->
+                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 hover:border-electric-200 transition group">
+                            <div class="w-10 h-10 bg-white text-electric-600 rounded-xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm border border-slate-100 group-hover:scale-110 transition duration-300">
+                                1
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">In-App Deletion</h3>
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">Remove specific entries directly within the Safarnama app.</p>
+                            <ul class="text-slate-600 text-sm space-y-2 list-none">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-electric-500 mt-1"></i> Open the Safarnama app.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-electric-500 mt-1"></i> Go to the <strong>"More"</strong> tab or <strong>"Recent Trips"</strong>.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-electric-500 mt-1"></i> Tap the <strong>trash can icon</strong> next to any saved location or trip to delete it instantly.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Method 2 -->
+                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100 hover:border-rose-200 transition group">
+                            <div class="w-10 h-10 bg-white text-rose-500 rounded-xl flex items-center justify-center font-bold text-lg mb-4 shadow-sm border border-slate-100 group-hover:scale-110 transition duration-300">
+                                2
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900 mb-3">Full App Reset (Clear Data)</h3>
+                            <p class="text-slate-600 mb-4 text-sm leading-relaxed">Instantly wipe all data associated with Safarnama via Android Settings.</p>
+                            <ul class="text-slate-600 text-sm space-y-2 list-none">
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-rose-500 mt-1"></i> Open your phone's <strong>Settings</strong> app.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-rose-500 mt-1"></i> Go to <strong>Apps</strong> &gt; <strong>Safarnama</strong>.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-rose-500 mt-1"></i> Tap <strong>Storage</strong>.</li>
+                                <li class="flex items-start gap-2"><i class="fa-solid fa-check text-rose-500 mt-1"></i> Tap <strong>Clear Data</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Types Covered -->
+                <section>
+                    <h2 class="text-2xl font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">What Data is Deleted?</h2>
+                    <p class="text-slate-600 leading-relaxed mb-4">
+                        Following either of the steps above will permanently delete the following information stored on your device:
+                    </p>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-electric-50 text-electric-700 px-4 py-2 rounded-full text-sm font-semibold border border-electric-100"><i class="fa-solid fa-location-dot mr-2"></i> Precise Location History (Recent Trips)</span>
+                        <span class="bg-electric-50 text-electric-700 px-4 py-2 rounded-full text-sm font-semibold border border-electric-100"><i class="fa-solid fa-house mr-2"></i> Personal Addresses (Home/Work)</span>
+                        <span class="bg-electric-50 text-electric-700 px-4 py-2 rounded-full text-sm font-semibold border border-electric-100"><i class="fa-solid fa-star mr-2"></i> Favorite Transport Stops</span>
+                    </div>
+                </section>
+
+                <!-- Retention Policy -->
+                <section class="bg-slate-900 p-8 rounded-3xl border border-slate-800 text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-electric-500 rounded-full blur-[80px] opacity-20"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-clock-rotate-left text-2xl text-electric-400"></i>
+                            <h2 class="text-2xl font-bold">Data Retention Policy</h2>
+                        </div>
+                        <p class="text-slate-300 leading-relaxed">
+                            <strong>Instant & Permanent:</strong> Because Safarnama does not transmit or store your personal data on any cloud database or server, there is no "retention period." Once you delete the data from the app or clear the app's storage via your phone's settings, your data is <strong>instantly and permanently destroyed</strong>. It cannot be recovered by us or anyone else.
+                        </p>
+                    </div>
+                </section>
+
+            </div> 
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-8 text-slate-400 text-sm mt-auto border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span>&copy; 2026 Safarnama. Created by Agam Singh Saini.</span>
+            <div class="flex gap-4">
+                <a href="index.html" class="hover:text-electric-500 transition">Home</a>
+                <a href="privacy-policy.html" class="hover:text-electric-500 transition">Privacy Policy</a>
+                <a href="delete_data.html" class="text-electric-500 font-medium">Delete Data</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
