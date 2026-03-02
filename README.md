@@ -1,12 +1,12 @@
-📍 Safarnama: The Future of NSW Transit
+📍 Sydly: The Future of NSW Transit
 
 Navigate NSW with electric ease. Real-time tracking, live car park occupancy, and smart trip planning—all in one electric luxury interface.
 
 📱 About The App
 
-Safarnama (formerly "Get Me Somewhere") is a next-generation public transport companion built for New South Wales, Australia.
+Sydly (formerly "Get Me Somewhere") is a next-generation public transport companion built for New South Wales, Australia.
 
-While apps like Google Maps and Opal provide basic routing, Safarnama bridges the gap by offering granular, real-time data that daily commuters actually need—such as live parking spot availability, school bus tracking, and specific on-demand service visualization.
+While apps like Google Maps and Opal provide basic routing, Sydly bridges the gap by offering granular, real-time data that daily commuters actually need—such as live parking spot availability, school bus tracking, and specific on-demand service visualization.
 
 Built with Flutter, it features a modern "Electric Luxury" design language using Indigo and Rose gradients.
 
@@ -14,7 +14,7 @@ Built with Flutter, it features a modern "Electric Luxury" design language using
 
 🚌 Advanced Real-Time Tracking
 
-Unlike standard trackers, Safarnama utilizes specific logic to categorize and color-code vehicles based on their service type (GTFS-R data):
+Unlike standard trackers, Sydly utilizes specific logic to categorize and color-code vehicles based on their service type (GTFS-R data):
 
 🟡 School Buses: Distinctly marked in yellow for easy identification by parents/students.
 
@@ -102,8 +102,8 @@ Installation
 
 Clone the repository
 
-git clone [https://github.com/DoomBuoy/Safarnama.git](https://github.com/DoomBuoy/Safarnama.git)
-cd Safarnama
+git clone [https://github.com/DoomBuoy/Sydly.git](https://github.com/DoomBuoy/Sydly.git)
+cd Sydly
 
 
 Install Dependencies
