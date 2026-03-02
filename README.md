@@ -1,4 +1,4 @@
-📍 Sydly: The Future of NSW Transit
+📍 Sydly - Traverse Sydney Seamlessly: The Future of NSW Transit
 
 Navigate NSW with electric ease. Real-time tracking, live car park occupancy, and smart trip planning—all in one electric luxury interface.
 
