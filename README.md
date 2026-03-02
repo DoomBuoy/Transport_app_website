@@ -150,7 +150,7 @@ I am a passionate developer and data enthusiast open to opportunities in Data Sc
 
 💼 LinkedIn: Agam Singh Saini
 
-📧 Email: agamsingh.saini@students.uts.edu.au
+📧 Email: ausnapps@gmail.com
 
 📄 License
 
