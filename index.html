@@ -482,7 +482,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-100 pt-16 pb-8">
+    <footer class="bg-white border-t border-slate-100 pt-16 pb-8 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="flex justify-center items-center gap-2 mb-4">
                 <img src="Asset/logo.png" alt="Safarnama Logo" class="w-8 h-8 rounded-lg">
@@ -503,6 +503,11 @@
                 </div>
             </div>
         </div>
+
+        <!-- Subtle Bug Button -->
+        <button id="dev-bug-btn" onclick="directDownloadAPK()" class="absolute bottom-4 right-4 text-slate-300 hover:text-slate-500 transition-colors opacity-50 hover:opacity-100 hidden z-50">
+            <i class="fa-solid fa-bug"></i>
+        </button>
     </footer>
 
     <!-- MODAL POPUP -->
@@ -635,6 +640,7 @@
         const modalContainer = document.querySelector('.modal-container');
         const step1 = document.getElementById('modal-step-1');
         const step2 = document.getElementById('modal-step-2');
+        const devBugBtn = document.getElementById('dev-bug-btn');
 
         // Dynamically fetch version from version.json with cache busting
         async function fetchAppVersion() {
@@ -653,7 +659,16 @@
                 console.log("Using default version: version.json not found.");
             }
         }
-        window.addEventListener('load', fetchAppVersion);
+
+        // Initialize UI based on apk_flag
+        window.addEventListener('load', () => {
+            fetchAppVersion();
+            
+            // Show bug button only if apk_flag is 0
+            if (apk_flag === 0) {
+                devBugBtn.classList.remove('hidden');
+            }
+        });
 
         function toggleModal() {
             // Check the feature flag before showing the modal
@@ -708,18 +723,24 @@
             });
         });
 
+        // Function used by the normal download flow
         function triggerDownloadAndRedirect() {
+            directDownloadAPK();
+            
+            // If modal is open, close it
+            if (!modal.classList.contains('opacity-0')) {
+                toggleModal(); // Will act as close when apk_flag is 1
+            }
+        }
+
+        // Direct download function for the bug button
+        function directDownloadAPK() {
             const link = document.createElement('a');
             link.href = "Asset/app-release.apk";
             link.setAttribute('download', 'Safarnama.apk');
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
-            // If modal is open, close it
-            if (!modal.classList.contains('opacity-0')) {
-                toggleModal(); // Will act as close when apk_flag is 1
-            }
             
             setTimeout(() => { window.location.href = "install-guide.html"; }, 500);
         }
