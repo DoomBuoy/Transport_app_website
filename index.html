@@ -94,7 +94,7 @@
         
         <div class="relative z-10 flex flex-col items-center text-center px-4">
             <img src="Asset/logo.png" alt="Sydly Logo" class="w-28 h-28 mb-8 rounded-3xl shadow-2xl shadow-electric-500/50 object-cover" onerror="this.src='https://via.placeholder.com/112'">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-white tracking-tight">Safar<span class="text-electric-500">nama</span></h1>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-white tracking-tight">Syd<span class="text-electric-500">ly</span></h1>
             <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-md">Navigate NSW with electric ease. Live bus/stop updates, parking, fuel prices, rest areas, and CBD loading.</p>
             
             <button onclick="enterSite()" class="bg-gradient-to-r from-electric-500 to-vibrant-500 text-white font-bold py-4 px-12 rounded-full shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(99,102,241,0.6)] transition-all duration-300 animate-bounce">
@@ -496,7 +496,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400 border-t border-slate-50 pt-8 max-w-5xl mx-auto">
                 <span>&copy; 2026 Sydly. Not affiliated with Transport for NSW.</span>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="install-guide.html" class="hover:text-electric-500 transition text-sm">Install Guide</a>
+                    <a id="install-guide-link" href="install-guide.html" class="hover:text-electric-500 transition text-sm">Install Guide</a>
                     <a href="privacy-policy.html" class="hover:text-electric-500 transition text-sm">Privacy Policy</a>
                     <a href="delete_data.html" class="hover:text-electric-500 transition text-sm">Delete Data</a>
                     <a href="tester.html" class="hover:text-electric-500 transition text-sm">Become a Tester</a>
@@ -664,9 +664,16 @@
         window.addEventListener('load', () => {
             fetchAppVersion();
             
-            // Show bug button only if apk_flag is 0
+            const installGuideLink = document.getElementById('install-guide-link');
+            
             if (apk_flag === 0) {
+                // Show bug button, hide install guide
                 devBugBtn.classList.remove('hidden');
+                if (installGuideLink) installGuideLink.classList.add('hidden');
+            } else {
+                // Hide bug button, show install guide
+                devBugBtn.classList.add('hidden');
+                if (installGuideLink) installGuideLink.classList.remove('hidden');
             }
         });
 
