@@ -2367,19 +2367,6 @@
             "isAdBlueAvailable": false
         },
         {
-            "brandid": "GSD-190678",
-            "stationid": "1-30UPBZ4",
-            "brand": "U-Go",
-            "code": "16887",
-            "name": "U-Go Taren Point",
-            "address": "114 Taren Point Rd, TAREN POINT NSW 2229",
-            "location": {
-                "latitude": -34.0206558,
-                "longitude": 151.1218918
-            },
-            "isAdBlueAvailable": false
-        },
-        {
             "brandid": "1-GFYV-5",
             "stationid": "1-30WARYL",
             "brand": "Independent",
@@ -6460,19 +6447,6 @@
                 "longitude": 149.9089176
             },
             "isAdBlueAvailable": true
-        },
-        {
-            "brandid": "27",
-            "stationid": "1-3K3IJF9",
-            "brand": "Ampol Foodary",
-            "code": "18285",
-            "name": "Ampol Foodary Coogee",
-            "address": "146-148 COOGEE BAY RD, COOGEE NSW 2034",
-            "location": {
-                "latitude": -33.9198931,
-                "longitude": 151.2517479
-            },
-            "isAdBlueAvailable": false
         },
         {
             "brandid": "1-GFYV-6",
@@ -42184,6 +42158,19 @@
                 "longitude": 150.67726314
             },
             "isAdBlueAvailable": false
+        },
+        {
+            "brandid": "1-GFYV-5",
+            "stationid": "20859",
+            "brand": "Independent",
+            "code": "20859",
+            "name": "Koorindah Fuel Station",
+            "address": "46 PRESIDENT WILSON WALK, TANILBA BAY NSW 2319",
+            "location": {
+                "latitude": -32.73381036,
+                "longitude": 152.00178177
+            },
+            "isAdBlueAvailable": false
         }
     ],
     "prices": [
@@ -42921,6 +42908,12 @@
         },
         {
             "stationcode": "41",
+            "fueltype": "DL",
+            "price": 298.9,
+            "lastupdated": "02/04/2026 09:00:51"
+        },
+        {
+            "stationcode": "41",
             "fueltype": "E10",
             "price": 227.9,
             "lastupdated": "31/03/2026 19:15:55"
@@ -43398,6 +43391,12 @@
             "fueltype": "P98",
             "price": 254.9,
             "lastupdated": "31/03/2026 19:01:33"
+        },
+        {
+            "stationcode": "60",
+            "fueltype": "DL",
+            "price": 298.9,
+            "lastupdated": "02/04/2026 09:15:51"
         },
         {
             "stationcode": "60",
@@ -44196,6 +44195,12 @@
             "fueltype": "P98",
             "price": 254.9,
             "lastupdated": "31/03/2026 19:15:55"
+        },
+        {
+            "stationcode": "103",
+            "fueltype": "DL",
+            "price": 298.9,
+            "lastupdated": "02/04/2026 09:30:50"
         },
         {
             "stationcode": "103",
@@ -46326,6 +46331,12 @@
             "fueltype": "U91",
             "price": 229.9,
             "lastupdated": "01/04/2026 23:09:13"
+        },
+        {
+            "stationcode": "202",
+            "fueltype": "DL",
+            "price": 298.9,
+            "lastupdated": "02/04/2026 09:00:51"
         },
         {
             "stationcode": "202",
@@ -48986,6 +48997,12 @@
             "lastupdated": "01/04/2026 23:12:23"
         },
         {
+            "stationcode": "319",
+            "fueltype": "U91",
+            "price": 229.9,
+            "lastupdated": "02/04/2026 09:30:07"
+        },
+        {
             "stationcode": "320",
             "fueltype": "E10",
             "price": 227.9,
@@ -49497,12 +49514,6 @@
         },
         {
             "stationcode": "352",
-            "fueltype": "E10",
-            "price": 227.9,
-            "lastupdated": "31/03/2026 19:40:49"
-        },
-        {
-            "stationcode": "352",
             "fueltype": "P98",
             "price": 255.9,
             "lastupdated": "31/03/2026 19:40:49"
@@ -49512,12 +49523,6 @@
             "fueltype": "PDL",
             "price": 309.9,
             "lastupdated": "02/04/2026 02:34:43"
-        },
-        {
-            "stationcode": "352",
-            "fueltype": "U91",
-            "price": 229.9,
-            "lastupdated": "31/03/2026 19:40:49"
         },
         {
             "stationcode": "354",
@@ -49998,12 +50003,6 @@
             "fueltype": "U91",
             "price": 229.9,
             "lastupdated": "31/03/2026 19:40:49"
-        },
-        {
-            "stationcode": "375",
-            "fueltype": "DL",
-            "price": 306.9,
-            "lastupdated": "02/04/2026 01:11:11"
         },
         {
             "stationcode": "375",
@@ -51436,8 +51435,8 @@
         {
             "stationcode": "457",
             "fueltype": "DL",
-            "price": 305.9,
-            "lastupdated": "01/04/2026 23:20:16"
+            "price": 309.9,
+            "lastupdated": "02/04/2026 08:55:07"
         },
         {
             "stationcode": "457",
@@ -51688,8 +51687,8 @@
         {
             "stationcode": "467",
             "fueltype": "E10",
-            "price": 237.9,
-            "lastupdated": "01/04/2026 23:20:16"
+            "price": 231.6,
+            "lastupdated": "02/04/2026 09:55:09"
         },
         {
             "stationcode": "467",
@@ -51700,20 +51699,20 @@
         {
             "stationcode": "467",
             "fueltype": "P95",
-            "price": 253.9,
-            "lastupdated": "01/04/2026 23:20:16"
+            "price": 247.6,
+            "lastupdated": "02/04/2026 09:55:09"
         },
         {
             "stationcode": "467",
             "fueltype": "P98",
-            "price": 262.9,
-            "lastupdated": "01/04/2026 23:20:16"
+            "price": 256.6,
+            "lastupdated": "02/04/2026 09:55:09"
         },
         {
             "stationcode": "467",
             "fueltype": "U91",
-            "price": 239.9,
-            "lastupdated": "01/04/2026 23:20:16"
+            "price": 233.6,
+            "lastupdated": "02/04/2026 09:55:09"
         },
         {
             "stationcode": "468",
@@ -51820,14 +51819,14 @@
         {
             "stationcode": "473",
             "fueltype": "DL",
-            "price": 314.1,
-            "lastupdated": "02/04/2026 06:40:10"
+            "price": 315.9,
+            "lastupdated": "02/04/2026 09:25:07"
         },
         {
             "stationcode": "473",
             "fueltype": "E10",
-            "price": 229.2,
-            "lastupdated": "02/04/2026 06:40:10"
+            "price": 225.9,
+            "lastupdated": "02/04/2026 09:25:07"
         },
         {
             "stationcode": "473",
@@ -51838,20 +51837,20 @@
         {
             "stationcode": "473",
             "fueltype": "P95",
-            "price": 245.2,
-            "lastupdated": "02/04/2026 06:40:10"
+            "price": 241.9,
+            "lastupdated": "02/04/2026 09:25:07"
         },
         {
             "stationcode": "473",
             "fueltype": "P98",
-            "price": 254.2,
-            "lastupdated": "02/04/2026 06:40:10"
+            "price": 250.9,
+            "lastupdated": "02/04/2026 09:25:07"
         },
         {
             "stationcode": "473",
             "fueltype": "U91",
-            "price": 231.2,
-            "lastupdated": "02/04/2026 06:40:10"
+            "price": 227.9,
+            "lastupdated": "02/04/2026 09:25:07"
         },
         {
             "stationcode": "474",
@@ -53464,8 +53463,8 @@
         {
             "stationcode": "547",
             "fueltype": "PDL",
-            "price": 303.6,
-            "lastupdated": "31/03/2026 22:36:15"
+            "price": 313.9,
+            "lastupdated": "02/04/2026 09:39:15"
         },
         {
             "stationcode": "547",
@@ -56662,14 +56661,14 @@
         {
             "stationcode": "694",
             "fueltype": "P95",
-            "price": 215.9,
-            "lastupdated": "01/04/2026 23:51:17"
+            "price": 245.9,
+            "lastupdated": "02/04/2026 09:09:16"
         },
         {
             "stationcode": "694",
             "fueltype": "P98",
-            "price": 223.9,
-            "lastupdated": "01/04/2026 23:51:17"
+            "price": 253.9,
+            "lastupdated": "02/04/2026 09:09:16"
         },
         {
             "stationcode": "694",
@@ -56680,8 +56679,8 @@
         {
             "stationcode": "694",
             "fueltype": "U91",
-            "price": 199.9,
-            "lastupdated": "01/04/2026 23:51:17"
+            "price": 229.9,
+            "lastupdated": "02/04/2026 09:09:16"
         },
         {
             "stationcode": "695",
@@ -57360,6 +57359,12 @@
             "fueltype": "U91",
             "price": 227.9,
             "lastupdated": "02/04/2026 06:20:16"
+        },
+        {
+            "stationcode": "846",
+            "fueltype": "DL",
+            "price": 298.9,
+            "lastupdated": "02/04/2026 09:50:41"
         },
         {
             "stationcode": "846",
@@ -60280,26 +60285,26 @@
         {
             "stationcode": "1157",
             "fueltype": "E10",
-            "price": 257.9,
-            "lastupdated": "01/04/2026 18:31:48"
+            "price": 245.9,
+            "lastupdated": "02/04/2026 09:38:30"
         },
         {
             "stationcode": "1157",
             "fueltype": "P98",
-            "price": 283.9,
-            "lastupdated": "01/04/2026 18:31:48"
+            "price": 271.9,
+            "lastupdated": "02/04/2026 09:38:30"
         },
         {
             "stationcode": "1157",
             "fueltype": "PDL",
-            "price": 329.9,
-            "lastupdated": "01/04/2026 05:38:03"
+            "price": 320.9,
+            "lastupdated": "02/04/2026 09:38:30"
         },
         {
             "stationcode": "1157",
             "fueltype": "U91",
-            "price": 259.9,
-            "lastupdated": "01/04/2026 18:31:48"
+            "price": 247.9,
+            "lastupdated": "02/04/2026 09:38:30"
         },
         {
             "stationcode": "1158",
@@ -63622,20 +63627,20 @@
         {
             "stationcode": "1491",
             "fueltype": "DL",
-            "price": 322.9,
-            "lastupdated": "01/04/2026 17:55:52"
+            "price": 308.9,
+            "lastupdated": "02/04/2026 09:09:01"
         },
         {
             "stationcode": "1491",
             "fueltype": "P95",
-            "price": 267.9,
-            "lastupdated": "01/04/2026 17:55:52"
+            "price": 243.9,
+            "lastupdated": "02/04/2026 09:09:01"
         },
         {
             "stationcode": "1491",
             "fueltype": "U91",
-            "price": 256.9,
-            "lastupdated": "01/04/2026 17:55:52"
+            "price": 233.9,
+            "lastupdated": "02/04/2026 09:09:01"
         },
         {
             "stationcode": "1495",
@@ -70078,8 +70083,8 @@
         {
             "stationcode": "2184",
             "fueltype": "P98",
-            "price": 269.9,
-            "lastupdated": "31/03/2026 09:24:06"
+            "price": 255.9,
+            "lastupdated": "02/04/2026 09:09:20"
         },
         {
             "stationcode": "2184",
@@ -70612,20 +70617,20 @@
         {
             "stationcode": "2257",
             "fueltype": "DL",
-            "price": 324.9,
-            "lastupdated": "26/03/2026 06:12:51"
+            "price": 309.9,
+            "lastupdated": "02/04/2026 09:33:31"
         },
         {
             "stationcode": "2257",
             "fueltype": "P98",
-            "price": 285.9,
-            "lastupdated": "26/03/2026 06:12:51"
+            "price": 259.9,
+            "lastupdated": "02/04/2026 09:33:31"
         },
         {
             "stationcode": "2257",
             "fueltype": "U91",
-            "price": 265.9,
-            "lastupdated": "26/03/2026 06:12:51"
+            "price": 239.9,
+            "lastupdated": "02/04/2026 09:33:31"
         },
         {
             "stationcode": "2259",
@@ -70661,12 +70666,6 @@
             "stationcode": "2263",
             "fueltype": "P98",
             "price": 252.9,
-            "lastupdated": "02/04/2026 06:40:20"
-        },
-        {
-            "stationcode": "2263",
-            "fueltype": "PDL",
-            "price": 305.4,
             "lastupdated": "02/04/2026 06:40:20"
         },
         {
@@ -72032,12 +72031,6 @@
             "lastupdated": "02/04/2026 06:20:16"
         },
         {
-            "stationcode": "2405",
-            "fueltype": "U91",
-            "price": 216.5,
-            "lastupdated": "02/04/2026 06:20:16"
-        },
-        {
             "stationcode": "2416",
             "fueltype": "DL",
             "price": 329.9,
@@ -72442,14 +72435,14 @@
         {
             "stationcode": "2461",
             "fueltype": "DL",
-            "price": 329.9,
-            "lastupdated": "28/03/2026 00:12:21"
+            "price": 335.9,
+            "lastupdated": "02/04/2026 09:52:12"
         },
         {
             "stationcode": "2461",
             "fueltype": "E10",
-            "price": 267.9,
-            "lastupdated": "28/03/2026 00:12:21"
+            "price": 255.9,
+            "lastupdated": "02/04/2026 09:52:12"
         },
         {
             "stationcode": "2461",
@@ -72460,8 +72453,8 @@
         {
             "stationcode": "2461",
             "fueltype": "U91",
-            "price": 274.9,
-            "lastupdated": "25/03/2026 22:09:11"
+            "price": 269.9,
+            "lastupdated": "02/04/2026 09:52:12"
         },
         {
             "stationcode": "2462",
@@ -72519,6 +72512,12 @@
         },
         {
             "stationcode": "2467",
+            "fueltype": "DL",
+            "price": 309.9,
+            "lastupdated": "02/04/2026 08:58:15"
+        },
+        {
+            "stationcode": "2467",
             "fueltype": "LPG",
             "price": 139.9,
             "lastupdated": "02/04/2026 04:22:44"
@@ -72526,20 +72525,20 @@
         {
             "stationcode": "2467",
             "fueltype": "P95",
-            "price": 245.9,
-            "lastupdated": "01/04/2026 20:15:35"
+            "price": 250.9,
+            "lastupdated": "02/04/2026 08:58:15"
         },
         {
             "stationcode": "2467",
             "fueltype": "P98",
-            "price": 250.9,
-            "lastupdated": "01/04/2026 20:15:35"
+            "price": 258.9,
+            "lastupdated": "02/04/2026 08:58:15"
         },
         {
             "stationcode": "2467",
             "fueltype": "PDL",
-            "price": 325.9,
-            "lastupdated": "27/03/2026 18:51:32"
+            "price": 311.9,
+            "lastupdated": "02/04/2026 08:58:15"
         },
         {
             "stationcode": "2471",
@@ -73764,24 +73763,6 @@
             "fueltype": "U91",
             "price": 270.7,
             "lastupdated": "25/03/2026 12:54:22"
-        },
-        {
-            "stationcode": "16887",
-            "fueltype": "P98",
-            "price": 256.6,
-            "lastupdated": "01/04/2026 21:45:13"
-        },
-        {
-            "stationcode": "16887",
-            "fueltype": "PDL",
-            "price": 296.2,
-            "lastupdated": "01/04/2026 21:45:13"
-        },
-        {
-            "stationcode": "16887",
-            "fueltype": "U91",
-            "price": 229.6,
-            "lastupdated": "01/04/2026 21:45:13"
         },
         {
             "stationcode": "16888",
@@ -76335,12 +76316,6 @@
         },
         {
             "stationcode": "17310",
-            "fueltype": "P95",
-            "price": 243.9,
-            "lastupdated": "02/04/2026 06:25:19"
-        },
-        {
-            "stationcode": "17310",
             "fueltype": "P98",
             "price": 252.9,
             "lastupdated": "02/04/2026 06:25:19"
@@ -77004,6 +76979,24 @@
             "fueltype": "E10",
             "price": 225.9,
             "lastupdated": "02/04/2026 06:15:19"
+        },
+        {
+            "stationcode": "17362",
+            "fueltype": "P95",
+            "price": 243.9,
+            "lastupdated": "02/04/2026 09:20:16"
+        },
+        {
+            "stationcode": "17362",
+            "fueltype": "P98",
+            "price": 252.9,
+            "lastupdated": "02/04/2026 09:20:16"
+        },
+        {
+            "stationcode": "17362",
+            "fueltype": "PDL",
+            "price": 289.4,
+            "lastupdated": "02/04/2026 09:20:16"
         },
         {
             "stationcode": "17362",
@@ -78418,8 +78411,8 @@
         {
             "stationcode": "18017",
             "fueltype": "PDL",
-            "price": 309.9,
-            "lastupdated": "02/04/2026 03:53:06"
+            "price": 313.3,
+            "lastupdated": "02/04/2026 09:31:27"
         },
         {
             "stationcode": "18017",
@@ -78862,14 +78855,14 @@
         {
             "stationcode": "18108",
             "fueltype": "E10",
-            "price": 229.7,
-            "lastupdated": "01/04/2026 10:38:51"
+            "price": 227.5,
+            "lastupdated": "02/04/2026 09:05:53"
         },
         {
             "stationcode": "18108",
             "fueltype": "P98",
-            "price": 259.7,
-            "lastupdated": "01/04/2026 10:38:51"
+            "price": 253.5,
+            "lastupdated": "02/04/2026 09:05:53"
         },
         {
             "stationcode": "18108",
@@ -78880,8 +78873,8 @@
         {
             "stationcode": "18108",
             "fueltype": "U91",
-            "price": 231.7,
-            "lastupdated": "01/04/2026 10:38:51"
+            "price": 229.5,
+            "lastupdated": "02/04/2026 09:05:53"
         },
         {
             "stationcode": "18110",
@@ -79233,6 +79226,12 @@
         },
         {
             "stationcode": "18145",
+            "fueltype": "PDL",
+            "price": 313.9,
+            "lastupdated": "02/04/2026 09:33:06"
+        },
+        {
+            "stationcode": "18145",
             "fueltype": "U91",
             "price": 241.9,
             "lastupdated": "31/03/2026 18:33:54"
@@ -79354,14 +79353,14 @@
         {
             "stationcode": "18156",
             "fueltype": "P98",
-            "price": 283.9,
-            "lastupdated": "25/03/2026 07:59:53"
+            "price": 251.9,
+            "lastupdated": "02/04/2026 08:57:00"
         },
         {
             "stationcode": "18156",
             "fueltype": "U91",
-            "price": 263.9,
-            "lastupdated": "25/03/2026 07:59:53"
+            "price": 231.9,
+            "lastupdated": "02/04/2026 08:57:00"
         },
         {
             "stationcode": "18158",
@@ -81036,12 +81035,6 @@
             "fueltype": "U91",
             "price": 234.5,
             "lastupdated": "02/04/2026 06:25:19"
-        },
-        {
-            "stationcode": "18285",
-            "fueltype": "U91",
-            "price": 227.9,
-            "lastupdated": "02/04/2026 06:15:19"
         },
         {
             "stationcode": "18286",
@@ -83920,8 +83913,8 @@
         {
             "stationcode": "18551",
             "fueltype": "DL",
-            "price": 298.5,
-            "lastupdated": "31/03/2026 20:23:09"
+            "price": 318.5,
+            "lastupdated": "02/04/2026 09:27:37"
         },
         {
             "stationcode": "18551",
@@ -83938,8 +83931,8 @@
         {
             "stationcode": "18551",
             "fueltype": "PDL",
-            "price": 303.5,
-            "lastupdated": "31/03/2026 20:23:09"
+            "price": 323.5,
+            "lastupdated": "02/04/2026 09:27:37"
         },
         {
             "stationcode": "18551",
@@ -87118,8 +87111,8 @@
         {
             "stationcode": "18789",
             "fueltype": "PDL",
-            "price": 309.9,
-            "lastupdated": "31/03/2026 22:24:15"
+            "price": 313.9,
+            "lastupdated": "02/04/2026 09:12:13"
         },
         {
             "stationcode": "18789",
@@ -87250,8 +87243,8 @@
         {
             "stationcode": "18794",
             "fueltype": "PDL",
-            "price": 309.9,
-            "lastupdated": "31/03/2026 22:30:27"
+            "price": 313.9,
+            "lastupdated": "02/04/2026 09:45:14"
         },
         {
             "stationcode": "18794",
@@ -87280,8 +87273,8 @@
         {
             "stationcode": "18795",
             "fueltype": "PDL",
-            "price": 309.9,
-            "lastupdated": "31/03/2026 22:21:13"
+            "price": 313.9,
+            "lastupdated": "02/04/2026 09:09:16"
         },
         {
             "stationcode": "18795",
@@ -87334,8 +87327,8 @@
         {
             "stationcode": "18797",
             "fueltype": "PDL",
-            "price": 309.9,
-            "lastupdated": "02/04/2026 01:36:14"
+            "price": 313.9,
+            "lastupdated": "02/04/2026 09:09:16"
         },
         {
             "stationcode": "18797",
@@ -87426,12 +87419,6 @@
             "fueltype": "U91",
             "price": 221.9,
             "lastupdated": "02/04/2026 06:20:16"
-        },
-        {
-            "stationcode": "18803",
-            "fueltype": "E10",
-            "price": 218.9,
-            "lastupdated": "02/04/2026 05:55:14"
         },
         {
             "stationcode": "18803",
@@ -92962,14 +92949,14 @@
         {
             "stationcode": "20050",
             "fueltype": "E10",
-            "price": 251.9,
-            "lastupdated": "01/04/2026 19:58:35"
+            "price": 243.9,
+            "lastupdated": "02/04/2026 09:23:13"
         },
         {
             "stationcode": "20050",
             "fueltype": "P98",
-            "price": 277.9,
-            "lastupdated": "01/04/2026 19:58:35"
+            "price": 269.9,
+            "lastupdated": "02/04/2026 09:23:13"
         },
         {
             "stationcode": "20050",
@@ -92980,8 +92967,8 @@
         {
             "stationcode": "20050",
             "fueltype": "U91",
-            "price": 253.9,
-            "lastupdated": "01/04/2026 19:58:35"
+            "price": 245.9,
+            "lastupdated": "02/04/2026 09:23:13"
         },
         {
             "stationcode": "20051",
@@ -95548,8 +95535,8 @@
         {
             "stationcode": "20195",
             "fueltype": "DL",
-            "price": 304.3,
-            "lastupdated": "02/04/2026 06:10:08"
+            "price": 309.5,
+            "lastupdated": "02/04/2026 09:00:08"
         },
         {
             "stationcode": "20195",
@@ -95872,20 +95859,20 @@
         {
             "stationcode": "20210",
             "fueltype": "DL",
-            "price": 324.9,
-            "lastupdated": "31/03/2026 21:25:49"
+            "price": 319.9,
+            "lastupdated": "02/04/2026 09:47:13"
         },
         {
             "stationcode": "20210",
             "fueltype": "P95",
-            "price": 268.9,
-            "lastupdated": "01/04/2026 23:54:52"
+            "price": 265.9,
+            "lastupdated": "02/04/2026 09:47:13"
         },
         {
             "stationcode": "20210",
             "fueltype": "U91",
-            "price": 256.9,
-            "lastupdated": "31/03/2026 21:25:49"
+            "price": 249.9,
+            "lastupdated": "02/04/2026 09:47:13"
         },
         {
             "stationcode": "20211",
@@ -98548,8 +98535,8 @@
         {
             "stationcode": "20514",
             "fueltype": "E10",
-            "price": 226.9,
-            "lastupdated": "01/04/2026 05:25:27"
+            "price": 224.9,
+            "lastupdated": "02/04/2026 09:53:12"
         },
         {
             "stationcode": "20514",
@@ -98560,14 +98547,14 @@
         {
             "stationcode": "20514",
             "fueltype": "P98",
-            "price": 253.9,
-            "lastupdated": "31/03/2026 21:02:14"
+            "price": 251.9,
+            "lastupdated": "02/04/2026 09:53:12"
         },
         {
             "stationcode": "20514",
             "fueltype": "U91",
-            "price": 228.9,
-            "lastupdated": "01/04/2026 05:25:27"
+            "price": 226.9,
+            "lastupdated": "02/04/2026 09:53:12"
         },
         {
             "stationcode": "20515",
@@ -100978,20 +100965,20 @@
         {
             "stationcode": "20637",
             "fueltype": "P98",
-            "price": 253.7,
-            "lastupdated": "02/04/2026 08:49:51"
+            "price": 253.5,
+            "lastupdated": "02/04/2026 09:35:14"
         },
         {
             "stationcode": "20637",
             "fueltype": "PDL",
-            "price": 309.8,
-            "lastupdated": "02/04/2026 08:49:51"
+            "price": 309.5,
+            "lastupdated": "02/04/2026 09:35:14"
         },
         {
             "stationcode": "20637",
             "fueltype": "U91",
-            "price": 233.7,
-            "lastupdated": "02/04/2026 08:49:51"
+            "price": 233.5,
+            "lastupdated": "02/04/2026 09:35:14"
         },
         {
             "stationcode": "20638",
@@ -102850,14 +102837,14 @@
         {
             "stationcode": "20831",
             "fueltype": "DL",
-            "price": 309.5,
-            "lastupdated": "02/04/2026 03:22:04"
+            "price": 308.9,
+            "lastupdated": "02/04/2026 09:58:56"
         },
         {
             "stationcode": "20831",
             "fueltype": "E10",
-            "price": 226.9,
-            "lastupdated": "31/03/2026 21:45:21"
+            "price": 224.5,
+            "lastupdated": "02/04/2026 09:57:34"
         },
         {
             "stationcode": "20831",
@@ -102874,14 +102861,14 @@
         {
             "stationcode": "20831",
             "fueltype": "P98",
-            "price": 252.9,
-            "lastupdated": "31/03/2026 21:45:21"
+            "price": 251.5,
+            "lastupdated": "02/04/2026 09:57:34"
         },
         {
             "stationcode": "20831",
             "fueltype": "U91",
-            "price": 228.9,
-            "lastupdated": "31/03/2026 21:45:21"
+            "price": 226.5,
+            "lastupdated": "02/04/2026 09:57:34"
         },
         {
             "stationcode": "20832",
@@ -103386,6 +103373,24 @@
             "fueltype": "U91",
             "price": 227.9,
             "lastupdated": "02/04/2026 02:32:32"
+        },
+        {
+            "stationcode": "20859",
+            "fueltype": "DL",
+            "price": 310.9,
+            "lastupdated": "02/04/2026 09:23:58"
+        },
+        {
+            "stationcode": "20859",
+            "fueltype": "P98",
+            "price": 271.9,
+            "lastupdated": "02/04/2026 09:23:58"
+        },
+        {
+            "stationcode": "20859",
+            "fueltype": "U91",
+            "price": 245.9,
+            "lastupdated": "02/04/2026 09:23:58"
         }
     ]
 }
