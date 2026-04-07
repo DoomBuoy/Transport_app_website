@@ -129,16 +129,18 @@
                     <a href="#comparison" class="text-slate-600 hover:text-electric-600 font-medium transition">Compare</a>
                     <!-- <a href="tester.html" class="text-electric-600 font-bold hover:text-electric-700 transition flex items-center gap-1"><i class="fa-solid fa-flask"></i> Beta Tester</a> -->
                     <a href="feedback.html" class="text-slate-600 hover:text-electric-600 font-medium transition">Feedback</a>
-                    <button onclick="toggleModal()" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg transform hover:-translate-y-0.5">
-                        Download APK
-                    </button>
+                    
+                    <!-- Modified to link to the download section -->
+                    <a href="#download-section" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg transform hover:-translate-y-0.5 inline-block">
+                        Download App
+                    </a>
                 </div>
 
                 <div class="md:hidden flex items-center gap-4">
-                    <!-- <a href="tester.html" class="text-electric-600 text-lg" title="Become a Tester"><i class="fa-solid fa-flask"></i></a> -->
-                    <button class="text-slate-600 hover:text-slate-900" onclick="toggleModal()">
+                    <!-- Modified to link to the download section -->
+                    <a href="#download-section" class="text-slate-600 hover:text-slate-900">
                         <i class="fa-solid fa-download text-2xl"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -169,7 +171,8 @@
                         Google Maps shows you a plan. Sydly shows you the reality. Get live bus/stop updates, real-time parking, fuel prices, rest areas, and CBD loading spaces—let the app do the heavy lifting.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <!-- Added id="download-section" and scroll-mt-32 so anchor linking works smoothly -->
+                    <div id="download-section" class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start scroll-mt-32">
                         <button onclick="toggleModal()" class="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-xl transform hover:-translate-y-1">
                             <i class="fa-brands fa-android text-2xl text-green-400"></i>
                             <div class="text-left">
@@ -177,13 +180,13 @@
                                 <div class="text-sm font-bold">Android</div>
                             </div>
                         </button>
-                        <button disabled class="flex items-center justify-center gap-3 bg-slate-100 text-slate-400 border border-slate-200 px-8 py-4 rounded-2xl cursor-not-allowed">
+                        <a href="https://apps.apple.com/au/app/sydly-travel-sydney-seamlessly/id6761148694" target="_blank" class="flex items-center justify-center gap-3 bg-slate-900 text-white px-8 py-4 rounded-2xl hover:bg-slate-800 transition shadow-xl transform hover:-translate-y-1">
                             <i class="fa-brands fa-apple text-2xl"></i>
                             <div class="text-left">
-                                <div class="text-xs">iOS App</div>
-                                <div class="text-sm font-bold">Coming Soon</div>
+                                <div class="text-xs text-slate-300">Download on the</div>
+                                <div class="text-sm font-bold">App Store</div>
                             </div>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
