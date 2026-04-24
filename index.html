@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -5,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sydly | The Future of NSW Transit</title>
     <meta name="description" content="Sydly: Navigate NSW with electric ease. Get live bus/stop updates, parking, fuel prices, rest areas, and CBD loading.">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS (CDN for zero-build hosting) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -63,7 +64,7 @@
         }
         .modal { transition: opacity 0.25s ease; }
         body.modal-active { overflow-x: hidden; overflow-y: visible !important; }
-        
+
         .comp-card {
             transition: all 0.3s ease;
         }
@@ -91,12 +92,12 @@
     <div id="intro-overlay" class="fixed inset-0 z-[100] bg-slate-900 flex flex-col items-center justify-center">
         <div class="absolute w-[500px] h-[500px] bg-electric-600 rounded-full blur-[120px] opacity-20 animate-pulse"></div>
         <div class="absolute w-[400px] h-[400px] bg-vibrant-600 rounded-full blur-[100px] opacity-20 mix-blend-screen translate-x-32 translate-y-32"></div>
-        
+
         <div class="relative z-10 flex flex-col items-center text-center px-4">
             <img src="Asset/logo.png" alt="Sydly Logo" class="w-28 h-28 mb-8 rounded-3xl shadow-2xl shadow-electric-500/50 object-cover" onerror="this.src='https://via.placeholder.com/112'">
             <h1 class="text-5xl md:text-7xl font-extrabold mb-4 text-white tracking-tight">Syd<span class="text-electric-500">ly</span></h1>
             <p class="text-slate-400 text-lg md:text-xl mb-12 max-w-md">Navigate NSW with electric ease. Live bus/stop updates, parking, fuel prices, rest areas, and CBD loading.</p>
-            
+
             <button onclick="enterSite()" class="bg-gradient-to-r from-electric-500 to-vibrant-500 text-white font-bold py-4 px-12 rounded-full shadow-[0_0_40px_rgba(99,102,241,0.4)] hover:scale-105 hover:shadow-[0_0_60px_rgba(99,102,241,0.6)] transition-all duration-300 animate-bounce">
                 Enter Journey
             </button>
@@ -104,11 +105,11 @@
             <!-- Audio Warning and Toggle -->
             <div class="mt-8 flex flex-col items-center gap-3">
                 <span class="text-slate-400 text-sm flex items-center gap-2">
-                    <i class="fa-solid fa-volume-high text-electric-400"></i> Sound will play on entry
+                    <i id="status-icon" class="fa-solid fa-volume-off text-rose-500"></i> <span id="status-text">Sound is muted by default</span>
                 </span>
                 <button onclick="toggleSoundPreference()" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm bg-slate-800/80 px-5 py-2 rounded-full border border-slate-700 shadow-lg">
-                    <i id="sound-toggle-icon" class="fa-solid fa-volume-xmark"></i>
-                    <span id="sound-toggle-text">Click here to mute</span>
+                    <i id="sound-toggle-icon" class="fa-solid fa-volume-high text-electric-400"></i>
+                    <span id="sound-toggle-text">Click here to unmute</span>
                 </button>
             </div>
         </div>
@@ -122,14 +123,14 @@
                     <img src="Asset/logo.png" alt="Sydly Logo" class="w-10 h-10 rounded-xl shadow-lg object-cover" onerror="this.src='https://via.placeholder.com/40'">
                     <span class="font-bold text-xl tracking-tight text-slate-900">Syd<span class="text-electric-500">ly</span></span>
                 </div>
-                
+
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#features" class="text-slate-600 hover:text-electric-600 font-medium transition">Features</a>
                     <a href="#tracking" class="text-slate-600 hover:text-electric-600 font-medium transition">Live Tracking</a>
                     <a href="#comparison" class="text-slate-600 hover:text-electric-600 font-medium transition">Compare</a>
                     <!-- <a href="tester.html" class="text-electric-600 font-bold hover:text-electric-700 transition flex items-center gap-1"><i class="fa-solid fa-flask"></i> Beta Tester</a> -->
                     <a href="feedback.html" class="text-slate-600 hover:text-electric-600 font-medium transition">Feedback</a>
-                    
+
                     <!-- Modified to link to the download section -->
                     <a href="#download-section" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full font-medium transition shadow-lg transform hover:-translate-y-0.5 inline-block">
                         Download App
@@ -161,12 +162,12 @@
                             <span class="text-sm font-semibold text-electric-700">Created by a Student, For Everyone</span>
                         </div>
                     </div>
-                    
+
                     <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
                         Your Journey with <br>
                         <span class="gradient-text">Sydly.</span>
                     </h1>
-                    
+
                     <p class="text-xl text-slate-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                         Google Maps shows you a plan. Sydly shows you the reality. Get live bus/stop updates, real-time parking, fuel prices, rest areas, and CBD loading spaces—let the app do the heavy lifting.
                     </p>
@@ -367,7 +368,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Comparison Summary -->
             <div class="mt-16 text-center">
                 <div class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-electric-100 text-slate-800 font-bold shadow-lg shadow-electric-500/10 hover:shadow-electric-500/30 transition duration-300">
@@ -463,27 +464,6 @@
         </div>
     </section>
 
-    <!-- Feedback Section -->
-    <!-- <section id="feedback" class="py-20 bg-slate-50">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 mb-4">Help Us Improve</h2>
-            <p class="text-slate-500 mb-8">Found a bug or have a suggestion? Your feedback directly shapes the next version of Sydly.</p>
-            
-            <form action="https://formspree.io/f/xreakgzd" method="POST" class="max-w-lg mx-auto text-left bg-white p-8 rounded-3xl border border-slate-100 shadow-xl">
-                <input type="hidden" name="form_type" value="feedback">
-                <div class="mb-4">
-                    <label class="block text-slate-700 text-sm font-bold mb-2">Email Address</label>
-                    <input type="email" name="email" placeholder="you@example.com" class="w-full p-3 rounded-xl border border-slate-200 focus:border-electric-500 focus:outline-none transition" required>
-                </div>
-                <div class="mb-6">
-                    <label class="block text-slate-700 text-sm font-bold mb-2">Your Feedback</label>
-                    <textarea name="message" rows="4" placeholder="How can we make Sydly better for you?" class="w-full p-3 rounded-xl border border-slate-200 focus:border-electric-500 focus:outline-none transition" required></textarea>
-                </div>
-                <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-xl hover:bg-slate-800 transition transform active:scale-95 shadow-lg">Send Feedback</button>
-            </form>
-        </div>
-    </section> -->
-
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-100 pt-16 pb-8 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -517,7 +497,7 @@
     <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center z-50">
         <div class="modal-overlay absolute w-full h-full bg-gray-900/60 backdrop-blur-sm"></div>
         <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded-[2rem] shadow-2xl z-50 overflow-hidden transform scale-95 transition-all duration-300">
-            
+
             <!-- STEP 1: USER TYPE SELECTION -->
             <div id="modal-step-1" class="py-8 px-8 transition-all duration-300">
                 <div class="flex justify-between items-center mb-6">
@@ -527,7 +507,7 @@
                     </button>
                 </div>
                 <p class="text-slate-500 mb-8 text-sm">Have you downloaded Sydly before?</p>
-                
+
                 <div class="space-y-4">
                     <!-- New User Button -->
                     <button onclick="showDownloadForm()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-4 rounded-xl transition flex items-center justify-center gap-3 border border-slate-200">
@@ -557,7 +537,7 @@
 
                 <form id="downloadForm" action="https://formspree.io/f/xreakgzd" method="POST">
                     <input type="hidden" name="form_type" value="download_request">
-                    
+
                     <div class="mb-4">
                         <label class="block text-slate-700 text-xs font-bold uppercase mb-2">Full Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" placeholder="John Doe" class="w-full p-3 bg-slate-50 rounded-xl border border-slate-100 focus:border-electric-500 focus:bg-white outline-none" required>
@@ -605,20 +585,29 @@
         const apk_flag = 0;
 
         // Intro Screen & Music Logic
-        let playSound = true;
+        let playSound = false; // Changed to false by default
 
         function toggleSoundPreference() {
             playSound = !playSound;
             const icon = document.getElementById('sound-toggle-icon');
             const text = document.getElementById('sound-toggle-text');
-            
+            const statusIcon = document.getElementById('status-icon');
+            const statusText = document.getElementById('status-text');
+
             if (playSound) {
-                icon.className = 'fa-solid fa-volume-xmark';
-                icon.classList.remove('text-rose-500');
+                // State when sound is enabled
+                icon.className = 'fa-solid fa-volume-xmark text-rose-500';
                 text.innerText = 'Click here to mute';
+                
+                if(statusIcon) statusIcon.className = 'fa-solid fa-volume-high text-electric-400';
+                if(statusText) statusText.innerText = 'Sound will play on entry';
             } else {
-                icon.className = 'fa-solid fa-volume-off text-rose-500';
-                text.innerText = 'Sound Muted';
+                // State when sound is disabled
+                icon.className = 'fa-solid fa-volume-high text-electric-400';
+                text.innerText = 'Click here to unmute';
+                
+                if(statusIcon) statusIcon.className = 'fa-solid fa-volume-off text-rose-500';
+                if(statusText) statusText.innerText = 'Sound is muted by default';
             }
         }
 
@@ -666,9 +655,9 @@
         // Initialize UI based on apk_flag
         window.addEventListener('load', () => {
             fetchAppVersion();
-            
+
             const installGuideLink = document.getElementById('install-guide-link');
-            
+
             if (apk_flag === 0) {
                 // Show bug button, hide install guide
                 devBugBtn.classList.remove('hidden');
@@ -690,7 +679,7 @@
             modal.classList.toggle('opacity-0');
             modal.classList.toggle('pointer-events-none');
             body.classList.toggle('modal-active');
-            
+
             if (!modal.classList.contains('opacity-0')) {
                 modalContainer.classList.add('scale-100');
                 modalContainer.classList.remove('scale-95');
@@ -736,7 +725,7 @@
         // Function used by the normal download flow
         function triggerDownloadAndRedirect() {
             directDownloadAPK();
-            
+
             // If modal is open, close it
             if (!modal.classList.contains('opacity-0')) {
                 toggleModal(); // Will act as close when apk_flag is 1
@@ -751,7 +740,7 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-            
+
             setTimeout(() => { window.location.href = "install-guide.html"; }, 500);
         }
 
@@ -774,3 +763,4 @@
     </script>
 </body>
 </html>
+
