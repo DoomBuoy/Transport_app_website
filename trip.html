@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Shared trip | Sydly</title>
+    <meta name="description" content="A trip shared from Sydly. Open it in the app, or view it in Google Maps.">
+    <meta property="og:title" content="A trip shared with you on Sydly">
+    <meta property="og:description" content="Open it in Sydly to see the route and follow it live.">
+    <meta property="og:image" content="https://doombuoy.github.io/Transport_app_website/Asset/logo.png">
+    <link rel="icon" href="Asset/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --electric: #6366F1;
+            --electric-dark: #4F46E5;
+            --vibrant: #F43F5E;
+            --ink: #0F172A;
+            --text: #334155;
+            --muted: #64748B;
+            --line: #E2E8F0;
+            --bg: #F8FAFC;
+            --card: #FFFFFF;
+        }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; }
+        body {
+            font-family: 'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+        .glow {
+            position: fixed; inset: 0 0 auto 0; height: 320px; z-index: 0;
+            background:
+                radial-gradient(60% 120% at 15% 0%, rgba(99,102,241,.22), transparent 70%),
+                radial-gradient(50% 110% at 90% 0%, rgba(244,63,94,.14), transparent 70%);
+            pointer-events: none;
+        }
+        main {
+            position: relative; z-index: 1;
+            max-width: 460px; margin: 0 auto; padding: 28px 16px 40px;
+        }
+        .brand {
+            display: flex; align-items: center; gap: 10px;
+            text-decoration: none; color: var(--ink); margin-bottom: 22px;
+        }
+        .brand img { width: 40px; height: 40px; border-radius: 11px; }
+        .brand span { font-weight: 800; font-size: 22px; letter-spacing: -.02em; }
+        h1 {
+            font-size: 26px; line-height: 1.15; letter-spacing: -.02em;
+            color: var(--ink); margin: 0 0 6px; font-weight: 800; text-wrap: balance;
+        }
+        .lead { margin: 0 0 20px; color: var(--muted); font-size: 15px; }
+        .card {
+            background: var(--card); border: 1px solid var(--line);
+            border-radius: 22px; padding: 18px;
+            box-shadow: 0 12px 30px -12px rgba(30,27,75,.18);
+        }
+        .place { display: flex; gap: 12px; align-items: flex-start; }
+        .dot {
+            flex: none; width: 14px; height: 14px; border-radius: 50%;
+            margin-top: 5px; border: 3px solid #16A34A; background: #fff;
+        }
+        .dot.end { border-color: var(--vibrant); }
+        .rail { width: 2px; height: 16px; background: var(--line); margin: 2px 0 2px 6px; }
+        .cap { font-size: 12px; color: var(--muted); }
+        .name { font-size: 16px; font-weight: 600; color: var(--ink); overflow-wrap: anywhere; }
+        hr { border: 0; border-top: 1px solid var(--line); margin: 16px 0; }
+        .when { font-weight: 600; color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+        .when small { display: block; font-weight: 500; color: var(--muted); font-size: 13px; margin-top: 2px; }
+        .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .chip {
+            font-size: 13px; font-weight: 700; color: var(--electric-dark);
+            background: rgba(99,102,241,.10); border: 1px solid rgba(99,102,241,.25);
+            padding: 5px 11px; border-radius: 999px;
+        }
+        .live {
+            display: none; align-items: center; gap: 8px; margin-top: 14px;
+            font-size: 13px; font-weight: 600; color: #15803D;
+            background: rgba(22,163,74,.08); border: 1px solid rgba(22,163,74,.22);
+            padding: 9px 12px; border-radius: 14px;
+        }
+        .live i {
+            width: 8px; height: 8px; border-radius: 50%; background: #16A34A; flex: none;
+            animation: pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes pulse { 50% { opacity: .25; } }
+        .actions { display: grid; gap: 10px; margin-top: 18px; }
+        .btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            min-height: 52px; padding: 12px 16px; border-radius: 16px;
+            font: inherit; font-weight: 700; font-size: 16px;
+            text-decoration: none; cursor: pointer; border: 1px solid transparent;
+            transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+        }
+        .btn:active { transform: scale(.985); }
+        .btn:focus-visible { outline: 3px solid rgba(99,102,241,.45); outline-offset: 2px; }
+        .primary {
+            color: #fff; background: linear-gradient(135deg, var(--electric) 0%, var(--electric-dark) 100%);
+            box-shadow: 0 10px 22px -10px rgba(79,70,229,.8);
+        }
+        .primary:hover { box-shadow: 0 12px 26px -10px rgba(79,70,229,.95); }
+        .store { color: #fff; background: var(--ink); }
+        .store:hover { background: #1E293B; }
+        .ghost { color: var(--ink); background: #fff; border-color: var(--line); }
+        .ghost:hover { background: #F1F5F9; }
+        .section {
+            margin: 22px 2px 8px; font-size: 13px; font-weight: 700;
+            color: var(--muted); letter-spacing: .04em; text-transform: uppercase;
+        }
+        .hint { font-size: 13px; color: var(--muted); margin: 8px 2px 0; }
+        .hint.warn { color: #B45309; font-weight: 600; display: none; }
+        footer { text-align: center; margin-top: 28px; font-size: 13px; color: var(--muted); }
+        footer a { color: var(--electric-dark); font-weight: 600; text-decoration: none; }
+        [hidden] { display: none !important; }
+        @media (prefers-reduced-motion: reduce) {
+            .live i { animation: none; }
+            .btn { transition: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="glow"></div>
+    <main>
+        <a class="brand" href="./">
+            <img src="Asset/logo.png" alt="">
+            <span>Sydly</span>
+        </a>
+
+        <!-- Shown when the link carries a trip -->
+        <section id="trip" hidden>
+            <h1>A trip was shared with you</h1>
+            <p class="lead">Open it in Sydly to see the full route on the map.</p>
+
+            <div class="card">
+                <div class="place">
+                    <span class="dot"></span>
+                    <div><div class="cap">From</div><div class="name" id="from"></div></div>
+                </div>
+                <div class="rail"></div>
+                <div class="place">
+                    <span class="dot end"></span>
+                    <div><div class="cap">To</div><div class="name" id="to"></div></div>
+                </div>
+                <hr>
+                <div class="when" id="when"></div>
+                <div class="chips" id="chips"></div>
+                <div class="live" id="live"><i></i><span>Live tracking is on: follow their bus or train in Sydly</span></div>
+            </div>
+
+            <div class="actions">
+                <a class="btn primary" id="open" href="#">Open in Sydly</a>
+            </div>
+            <p class="hint warn" id="noapp">Nothing happened? Sydly isn't installed yet. Get it below, then tap the link again.</p>
+
+            <div class="section">Don't have Sydly?</div>
+            <div class="actions">
+                <a class="btn store" id="ios" href="https://apps.apple.com/au/app/sydly-travel-sydney-seamlessly/id6761148694">Download on the App Store</a>
+                <a class="btn store" id="android" href="https://play.google.com/store/apps/details?id=io.github.Doombuoy.safarnama">Get it on Google Play</a>
+                <a class="btn ghost" id="gmaps" href="#" target="_blank" rel="noopener">View this trip in Google Maps</a>
+            </div>
+            <p class="hint">Google Maps shows its own route between the same two places, which may differ from the shared one.</p>
+        </section>
+
+        <!-- Shown when the link is broken or incomplete -->
+        <section id="bad" hidden>
+            <h1>This trip link isn't complete</h1>
+            <p class="lead">Ask the sender to share the trip again from Sydly.</p>
+            <div class="actions">
+                <a class="btn store" href="https://apps.apple.com/au/app/sydly-travel-sydney-seamlessly/id6761148694">Download on the App Store</a>
+                <a class="btn store" href="https://play.google.com/store/apps/details?id=io.github.Doombuoy.safarnama">Get it on Google Play</a>
+            </div>
+        </section>
+
+        <footer><a href="./">sydly</a> · travel Sydney seamlessly</footer>
+    </main>
+
+    <script>
+    (function () {
+        var PLAY = 'https://play.google.com/store/apps/details?id=io.github.Doombuoy.safarnama';
+        var PACKAGE = 'io.github.Doombuoy.safarnama';
+        var q = new URLSearchParams(location.search);
+        var $ = function (id) { return document.getElementById(id); };
+
+        function coord(s) {
+            if (!s) return null;
+            var p = s.split(',');
+            if (p.length !== 2) return null;
+            var lat = Number(p[0]), lng = Number(p[1]);
+            if (!isFinite(lat) || !isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
+            return lat + ',' + lng;
+        }
+        function time(s) {
+            var n = Number(s);
+            return s && isFinite(n) && n > 0 ? new Date(n * 1000) : null;
+        }
+
+        var oc = coord(q.get('oc')), dc = coord(q.get('dc'));
+        var dep = time(q.get('t')), arr = time(q.get('a'));
+        var from = q.get('on') || 'Start', to = q.get('dn') || 'Destination';
+        var valid = dep && (oc || q.get('oi')) && (dc || q.get('di'));
+
+        if (!valid) { $('bad').hidden = false; return; }
+
+        // Text only: nothing from the link is ever written as HTML.
+        $('from').textContent = from;
+        $('to').textContent = to;
+
+        // Times are always shown in Sydney time, whatever the device is set to.
+        var tz = { timeZone: 'Australia/Sydney' };
+        var day = new Intl.DateTimeFormat('en-AU', Object.assign({ weekday: 'short', day: 'numeric', month: 'short' }, tz)).format(dep);
+        var hm = new Intl.DateTimeFormat('en-AU', Object.assign({ hour: 'numeric', minute: '2-digit' }, tz));
+        var when = $('when');
+        when.textContent = 'Leaves ' + hm.format(dep) + (arr ? ', arrives ' + hm.format(arr) : '');
+        var small = document.createElement('small');
+        small.textContent = day + ' · Sydney time';
+        when.appendChild(small);
+
+        var MODES = { 1: 'Train', 2: 'Metro', 4: 'Light Rail', 5: 'Bus', 7: 'Coach', 9: 'Ferry', 11: 'Bus' };
+        var lines = (q.get('l') || '').split('_').filter(Boolean);
+        var chips = $('chips');
+        if (!lines.length) lines = ['0.Walk'];
+        lines.slice(0, 8).forEach(function (l) {
+            var dot = l.indexOf('.');
+            var cls = dot < 0 ? '' : l.slice(0, dot);
+            var num = dot < 0 ? l : l.slice(dot + 1);
+            var chip = document.createElement('span');
+            chip.className = 'chip';
+            chip.textContent = ((MODES[cls] || '') + ' ' + num).trim().slice(0, 40);
+            chips.appendChild(chip);
+        });
+
+        if (q.get('live') === '1') $('live').style.display = 'flex';
+
+        // Google Maps: same start and end, transit directions.
+        var g = new URLSearchParams({ api: '1', origin: oc || from, destination: dc || to, travelmode: 'transit' });
+        $('gmaps').href = 'https://www.google.com/maps/dir/?' + g.toString();
+
+        // "Open in Sydly": the app registers sydly://trip.
+        var query = location.search.replace(/^\?/, '');
+        var ua = navigator.userAgent || '';
+        var isAndroid = /Android/i.test(ua);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        var open = $('open');
+
+        if (isAndroid) {
+            // Opens the app, or the Play Store when it is missing or too old.
+            open.href = 'intent://trip?' + query + '#Intent;scheme=sydly;package=' + PACKAGE +
+                ';S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+            $('ios').hidden = true;
+        } else {
+            open.href = 'sydly://trip?' + query;
+            if (isIOS) $('android').hidden = true;
+            // If the page is still in front shortly after the tap, the app did not open.
+            open.addEventListener('click', function () {
+                setTimeout(function () {
+                    if (!document.hidden) $('noapp').style.display = 'block';
+                }, 1800);
+            });
+        }
+        if (!isAndroid && !isIOS) {
+            open.textContent = 'Open in Sydly (on your phone)';
+        }
+
+        $('trip').hidden = false;
+    })();
+    </script>
+</body>
+</html>
