@@ -90,6 +90,14 @@
             animation: pulse 1.6s ease-in-out infinite;
         }
         @keyframes pulse { 50% { opacity: .25; } }
+        .person {
+            display: none; align-items: center; justify-content: space-between; gap: 10px;
+            margin-top: 10px; font-size: 13px; font-weight: 600; color: var(--electric-dark);
+            background: rgba(99,102,241,.08); border: 1px solid rgba(99,102,241,.22);
+            padding: 9px 12px; border-radius: 14px;
+        }
+        .person.off { color: var(--muted); background: #F1F5F9; border-color: var(--line); }
+        .person a { color: var(--electric-dark); font-weight: 700; white-space: nowrap; }
         .actions { display: grid; gap: 10px; margin-top: 18px; }
         .btn {
             display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -151,6 +159,10 @@
                 <div class="when" id="when"></div>
                 <div class="chips" id="chips"></div>
                 <div class="live" id="live"><i></i><span>Live tracking is on: follow their bus or train in Sydly</span></div>
+                <div class="person" id="person">
+                    <span id="person-text">Checking their location…</span>
+                    <a id="person-link" href="#" target="_blank" rel="noopener" hidden>Show on map</a>
+                </div>
             </div>
 
             <div class="actions">
@@ -268,6 +280,49 @@
         }
 
         $('trip').hidden = false;
+
+        // Their phone's own location, if they chose to share it. Read from the
+        // same Firestore document the app writes (project set in LIVE_PROJECT).
+        var LIVE_PROJECT = '';
+        var share = q.get('s') || '';
+        if (LIVE_PROJECT && /^[A-Za-z0-9]{20,40}$/.test(share)) {
+            var box = $('person'), text = $('person-text'), link = $('person-link');
+            var url = 'https://firestore.googleapis.com/v1/projects/' + LIVE_PROJECT +
+                '/databases/(default)/documents/live/' + share;
+            var seen = false;
+            box.style.display = 'flex';
+
+            function num(v) {
+                if (!v) return NaN;
+                return Number(v.doubleValue !== undefined ? v.doubleValue : v.integerValue);
+            }
+            function ended() {
+                box.className = 'person off';
+                text.textContent = 'They are no longer sharing their location';
+                link.hidden = true;
+            }
+            function poll() {
+                if (document.hidden) return;
+                fetch(url).then(function (r) {
+                    if (r.status === 403 || (r.status === 404 && seen)) { ended(); return null; }
+                    return r.ok ? r.json() : null;
+                }).then(function (doc) {
+                    if (!doc || !doc.fields) return;
+                    var lat = num(doc.fields.lat), lng = num(doc.fields.lng);
+                    if (!isFinite(lat) || !isFinite(lng) || Math.abs(lat) > 90 || Math.abs(lng) > 180) return;
+                    seen = true;
+                    var ts = doc.fields.ts && Date.parse(doc.fields.ts.timestampValue);
+                    var mins = ts ? Math.floor((Date.now() - ts) / 60000) : 0;
+                    box.className = mins >= 2 ? 'person off' : 'person';
+                    text.textContent = mins < 1 ? 'Their phone: live now'
+                        : 'Their phone: last seen ' + (mins < 60 ? mins + ' min ago' : 'over an hour ago');
+                    link.href = 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lng;
+                    link.hidden = false;
+                }).catch(function () {});
+            }
+            poll();
+            setInterval(poll, 10000);
+        }
     })();
     </script>
 </body>
