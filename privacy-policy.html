@@ -53,7 +53,7 @@
                     <i class="fa-solid fa-shield-halved"></i>
                 </div>
                 <h1 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Privacy Policy for Sydly</h1>
-                <p class="text-slate-500 font-medium">Effective Date: February 28, 2026</p>
+                <p class="text-slate-500 font-medium">Effective Date: November 15, 2026</p>
             </div>
 
             <div class="space-y-10">
@@ -87,26 +87,40 @@
                             <ul class="list-disc pl-6 text-slate-600 space-y-2 bg-slate-50 p-5 rounded-2xl border border-slate-100">
                                 <li><strong>Why we need it:</strong> We use this data strictly to provide core functionality, such as finding your current location to calculate transit routes, showing nearby transport stops, and calculating distances to points of interest.</li>
                                 <li><strong>How it is handled:</strong> Your location data is processed in real-time and transmitted securely to third-party routing and mapping APIs (Transport for NSW, TomTom) to fetch transit directions.</li>
-                                <li><strong>Data Sharing & Storage:</strong> We do not store your location data on any external servers, nor do we sell or share your location history with advertising networks or third-party data brokers.</li>
+                                <li><strong>Data Sharing & Storage:</strong> We do not store your location data on any external servers unless you choose to share your live location with a trip (see section 2 below). We never sell or share your location history with advertising networks or third-party data brokers.</li>
                             </ul>
                         </div>
 
                         <div>
-                            <h3 class="text-lg font-bold text-slate-800 mb-2">2. Local Device Storage</h3>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">2. Sharing a Trip and Live Location (Optional)</h3>
+                            <p class="text-slate-600 leading-relaxed mb-3">
+                                The App lets you share a planned trip with other people as a link. Nothing is shared unless you tap "Share trip" yourself.
+                            </p>
+                            <ul class="list-disc pl-6 text-slate-600 space-y-2 bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                <li><strong>What the link contains:</strong> The names and coordinates of the start and end of the trip, the departure and arrival times, and the services used (for example "Bus 333"). If the trip starts at your current location or your home, the link contains that location. The link is sent through whichever app you choose to share it with, and anyone who has the link can see these details.</li>
+                                <li><strong>Live location is off by default:</strong> When sharing a trip you can switch on "Share my own live location". Only then does the App send your device's position (latitude, longitude, accuracy and the time of the reading) about every 10 seconds, and only while the App is open on your screen.</li>
+                                <li><strong>Where it is stored:</strong> The position is stored on Google Firebase (Cloud Firestore), operated by Google. Each share keeps a single latest position, which is overwritten by the next one; no history of your movements is kept. It is not linked to your name, an account, or any other identifier.</li>
+                                <li><strong>Who can see it:</strong> Anyone who has the shared link, in the App or on the Sydly website, until the share ends. Only send the link to people you trust.</li>
+                                <li><strong>When it ends:</strong> Sharing stops when you tap "Stop", or automatically shortly after the trip's arrival time (never more than 12 hours after it started). The stored position is deleted when you tap "Stop". If the share ends by itself, the position can no longer be read by anyone and is deleted the next time you open the App.</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">3. Local Device Storage</h3>
                             <p class="text-slate-600 leading-relaxed">
                                 The App allows you to save "Home," "Work," and "Favorite" locations, as well as a history of "Recent Trips." This data is stored entirely locally on your device using local storage mechanisms (SharedPreferences). We do not have access to this data, and it is not uploaded to our servers. You can clear this data at any time by clearing the App's data in your device settings.
                             </p>
                         </div>
 
                         <div>
-                            <h3 class="text-lg font-bold text-slate-800 mb-2">3. Analytics and Crash Reporting</h3>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">4. Analytics and Crash Reporting</h3>
                             <p class="text-slate-600 leading-relaxed">
                                 We currently do not use any third-party analytics or crash tracking tools (such as Firebase Analytics or Crashlytics). We do not silently collect diagnostic data about your usage of the App.
                             </p>
                         </div>
 
                         <div>
-                            <h3 class="text-lg font-bold text-slate-800 mb-2">4. Advertising</h3>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">5. Advertising</h3>
                             <p class="text-slate-600 leading-relaxed">
                                 The App is currently ad-free and does not use third-party advertising networks. If we decide to introduce advertisements in the future, this Privacy Policy will be updated to reflect the networks used and any associated data collection.
                             </p>
@@ -124,6 +138,7 @@
                         <li>Transport for NSW (TfNSW) Open Data API: <span class="font-normal text-slate-500">Used for transit routes, alerts, and stops.</span></li>
                         <li>TomTom API: <span class="font-normal text-slate-500">Used for location and point of interest (POI) searching.</span></li>
                         <li>OpenStreetMap (Nominatim): <span class="font-normal text-slate-500">Used as a fallback for location searching.</span></li>
+                        <li>Google Firebase (Cloud Firestore): <span class="font-normal text-slate-500">Used only when you choose to share your live location with a trip, to pass your position to the people you shared it with.</span></li>
                     </ul>
                     <p class="text-slate-600 leading-relaxed">
                         We recommend reviewing the Privacy Policies of these third-party service providers to understand how they handle data transmitted via their APIs.
