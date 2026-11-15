@@ -283,7 +283,7 @@
 
         // Their phone's own location, if they chose to share it. Read from the
         // same Firestore document the app writes (project set in LIVE_PROJECT).
-        var LIVE_PROJECT = '';
+        var LIVE_PROJECT = 'sydly-live-share';
         var share = q.get('s') || '';
         if (LIVE_PROJECT && /^[A-Za-z0-9]{20,40}$/.test(share)) {
             var box = $('person'), text = $('person-text'), link = $('person-link');
@@ -304,7 +304,10 @@
             function poll() {
                 if (document.hidden) return;
                 fetch(url).then(function (r) {
-                    if (r.status === 403 || (r.status === 404 && seen)) { ended(); return null; }
+                    // Before the first update the server answers the same way as for an
+                    // ended share, so only call it ended once the trip is well over.
+                    var over = Date.now() > ((arr || dep).getTime() + 20 * 60000);
+                    if ((r.status === 403 || r.status === 404) && (seen || over)) { ended(); return null; }
                     return r.ok ? r.json() : null;
                 }).then(function (doc) {
                     if (!doc || !doc.fields) return;
